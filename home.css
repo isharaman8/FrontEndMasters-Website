@@ -378,3 +378,21 @@ border-radius: 50px;
     width: 200px;
    margin:auto; 
 }
+
+#row{
+    display:flex;
+    border:1px solid #ffffff;
+    justify-content:space-around;
+}
+.social{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    margin-left:-150px;
+}
+.social img{
+    float:left;
+    width:50px;
+    height:50px;
+    margin:5px;
+}
