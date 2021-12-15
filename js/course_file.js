@@ -71,6 +71,14 @@ const appendCourses = (courses) => {
 		buttonSpan.classList.add("buttonSpan");
 		backgroundImg.classList.add("bigImage");
 
+		// EVENT LISTENERS
+		let previewListeners = [watchFreePrevBtn, backgroundImg];
+		previewListeners.forEach((one) => {
+			one.addEventListener("click", () => {
+				goToPreviewPage(course);
+			});
+		});
+
 		// APPENDING
 		authorCredsTextDiv.append(authorName, authorJob);
 		authorCredsDiv.append(authorImg, authorCredsTextDiv);
@@ -90,5 +98,8 @@ const appendCourses = (courses) => {
 		document.querySelector("#courses").append(mainDiv);
 	});
 };
-
+function goToPreviewPage(course) {
+	localStorage.setItem("previewCourse", JSON.stringify(course));
+	window.location.href = "preview.html";
+}
 appendCourses(courses);
