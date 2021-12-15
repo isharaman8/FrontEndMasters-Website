@@ -18,9 +18,10 @@ body {
 	color: white;
 }
 #headingAndSearch {
-	justify-content: space-around;
+	justify-content: space-evenly;
 	align-items: flex-start;
 	color: white;
+	gap: 34%;
 	margin-top: 20px;
 }
 #headingAndSearch > h1 {
@@ -51,6 +52,9 @@ body {
 	gap: 10px;
 	list-style: none;
 }
+#filters > ul > li:nth-child(1) {
+	margin-left: 30px;
+}
 #filters > ul > li {
 	padding: 10px 5px;
 	height: 100%;
@@ -76,6 +80,7 @@ body {
 /* hover states */
 .courseMainDiv > img:hover,
 .buttonSpan > button:hover,
+.courseTextDiv > h2:hover,
 #filters > ul > li {
 	cursor: pointer;
 }
@@ -289,6 +294,9 @@ body {
 		position: absolute;
 		bottom: 15px;
 		left: 10px;
+	}
+	#filters > ul > li:nth-child(1) {
+		margin-left: 0;
 	}
 }
 

@@ -90,7 +90,7 @@ function appendCourses(courses, appendingDiv) {
 		backgroundImg.classList.add("bigImage");
 
 		// EVENT LISTENERS
-		let previewListeners = [watchFreePrevBtn, backgroundImg];
+		let previewListeners = [watchFreePrevBtn, backgroundImg, title];
 		previewListeners.forEach((one) => {
 			one.addEventListener("click", () => {
 				goToPreviewPage(course);
@@ -125,8 +125,7 @@ function goToPreviewPage(course) {
 function searchResults() {
 	let query = document.querySelector("#searchCourse").value;
 	if (!query) {
-		let ad = document.querySelector("#allCourses");
-		appendCourses(courses, ad);
+		document.getElementById("allCoursesLi").click();
 		clearTimeout(id);
 		return;
 	}
@@ -158,6 +157,8 @@ appendCourses(courses, allCourseDiv);
 // GLOBAL EVENT LISTENERS
 
 document.querySelector("#popularLi").addEventListener("click", () => {
+	document.querySelector("#headingAndSearch > h1").textContent =
+		"View Popular Courses";
 	appendCourses(courses, popularCourseDiv);
 	document.querySelector("#allCoursesLi").style.backgroundColor = "#161616";
 	document.querySelector("#popularLi").style.backgroundColor = "#0a57a3";
@@ -169,6 +170,9 @@ document.querySelector("#popularLi").addEventListener("click", () => {
 });
 
 document.querySelector("#allCoursesLi").addEventListener("click", () => {
+	document.querySelector("#headingAndSearch > h1").textContent =
+		"Frontend Masters Courses";
+
 	appendCourses(courses, allCourseDiv);
 	document.querySelector("#allCoursesLi").style.backgroundColor = "#0a57a3";
 	document.querySelector("#popularLi").style.backgroundColor = "#161616";
