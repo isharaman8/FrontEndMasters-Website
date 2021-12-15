@@ -40,6 +40,7 @@ const upperSection = (singleCourse) => {
 	uppAuthorMain.id = "uppAuthorMain";
 	uppAuthorText.id = "uppAuthorText";
 	durationSpan.classList.add("durationSpan");
+	ccTag.classList.add("ccTag");
 
 	// APPENDING
 	durationSpan.append(videoDuration, ccTag);
