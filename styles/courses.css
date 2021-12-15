@@ -12,6 +12,11 @@ body {
 	background-color: #222;
 }
 /* Main Heading and Search Bar */
+/* SETTING DEFAULT BACKGROUND COLOR */
+#allCoursesLi {
+	background-color: #0a57a3;
+	color: white;
+}
 #headingAndSearch {
 	justify-content: space-around;
 	align-items: flex-start;
@@ -56,7 +61,8 @@ body {
 .courseMainDiv,
 .authorMainDiv,
 .durationSpan,
-.buttonSpan {
+.buttonSpan,
+#popularCourses {
 	display: flex;
 }
 
@@ -77,7 +83,7 @@ body {
 	color: white;
 }
 
-#courses {
+#allCourses {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -186,8 +192,59 @@ body {
 .buttonSpan > button:nth-last-child(1) {
 	background-color: #c94f17;
 }
+
+/* POPULAR COURSES AND SEARCH RESULTS*/
+#popularCourses {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+#popularCourses > .courseMainDiv {
+	width: 80%;
+	height: 340px;
+}
+
+#popularCourses .courseTextDiv {
+	position: static !important;
+	width: 100% !important;
+}
+
+#popularCourses .buttonSpan {
+	position: absolute;
+	left: 320px;
+}
+
+/* Search Div */
+#searchDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+#searchDiv > .courseMainDiv {
+	width: 80%;
+	height: 340px !important;
+}
+
+#searchDiv .courseTextDiv {
+	position: static !important;
+	width: 100% !important;
+}
+
+#searchDiv .buttonSpan {
+	position: absolute;
+	left: 320px;
+}
+
+/* MEDIA QUERIES */
+
 @media only screen and (max-width: 800px) {
-	#courses {
+	#allCourses {
 		display: flex;
 	}
 	#headingAndSearch {
@@ -203,5 +260,43 @@ body {
 
 	#headingAndSearch > input {
 		width: 88%;
+	}
+
+	/* Popular courses and search results*/
+
+	#searchDiv > .courseMainDiv,
+	#popularCourses > .courseMainDiv {
+		color: white;
+		justify-content: flex-start;
+		align-items: center;
+		position: relative;
+		width: 600px;
+		height: 370px;
+	}
+	#searchDiv > .courseTextDiv,
+	#popularCourses .courseTextDiv {
+		position: absolute !important;
+		right: 0;
+		top: 0;
+		flex-direction: column;
+		width: 500px !important;
+		height: 100% !important;
+		animation: moveAtMedia 1s forwards;
+	}
+	#searchDiv > .courseTextDiv,
+	#popularCourses .buttonSpan {
+		gap: 10px;
+		position: absolute;
+		bottom: 15px;
+		left: 10px;
+	}
+}
+
+@keyframes moveAtMedia {
+	from {
+		transform: translateX(50px);
+	}
+	to {
+		transform: translateX(0);
 	}
 }
