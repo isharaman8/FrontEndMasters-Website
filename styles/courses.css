@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+body,
+html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	color: rgb(29, 29, 29);
+	background-color: #222;
+}
+/* Main Heading and Search Bar */
+#headingAndSearch {
+	justify-content: space-around;
+	align-items: flex-start;
+	color: white;
+	margin-top: 20px;
+}
+#headingAndSearch > h1 {
+	font-size: 36px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	margin: 0;
+}
+#headingAndSearch > input {
+	-webkit-appearance: none;
+	background-color: #3e3e3e;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	margin: 10px 0 20px;
+	padding: 10px;
+	width: 230px;
+}
+#filters {
+	background-color: #161616 !important;
+
+	margin: 15px 0;
+	width: 100%;
+}
+
+#filters > ul {
+	color: rgb(194, 194, 194);
+	gap: 10px;
+	list-style: none;
+}
+#filters > ul > li {
+	padding: 10px 5px;
+	height: 100%;
+}
+/* All other stuff */
+#filters > ul,
+#headingAndSearch,
+.courseMainDiv,
+.authorMainDiv,
+.durationSpan,
+.buttonSpan {
+	display: flex;
+}
+
+.courseTextDiv > h2,
+.authorMainDiv,
+.courseTextDiv > p,
+.durationSpan {
+	padding: 0 10px;
+}
+
+/* hover states */
+.courseMainDiv > img:hover,
+.buttonSpan > button:hover,
+#filters > ul > li {
+	cursor: pointer;
+}
+#filters > ul > li:hover {
+	color: white;
+}
+
+#courses {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+}
+.courseMainDiv {
+	color: white;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	width: 600px;
+	height: 370px;
+}
+
+.courseTextDiv {
+	background: radial-gradient(circle at left, rgba(0, 0, 0, 0.6) 0, #000 25%);
+	position: absolute;
+	right: 0;
+	top: 0;
+	flex-direction: column;
+	width: 500px;
+	height: 100%;
+}
+.courseTextDiv > p {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: 0;
+	line-height: 1.2;
+}
+.courseTextDiv > h2 {
+	font-size: 27px;
+	font-weight: 400;
+	margin: 0;
+	padding: 10px;
+	color: #dd625e;
+}
+
+.courseMainDiv > img {
+	width: 300px;
+	height: 100% !important;
+	opacity: 0.5;
+	transition: opacity 1s ease;
+}
+.courseMainDiv:hover .bigImage {
+	opacity: 1;
+}
+.authorMainDiv {
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	gap: 13px;
+}
+.authorTextDiv > p {
+	margin: 0;
+}
+.authorTextDiv > p:nth-child(1) {
+	font-size: 20px;
+	margin: 0 auto 3px auto;
+}
+.authorTextDiv p:nth-last-child(1) {
+	font-size: 16px;
+}
+.authorMainDiv > img {
+	border-radius: 50%;
+	width: 78px;
+	height: 78px;
+}
+.durationSpan {
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+}
+.ccTag {
+	border: 1px solid grey;
+	border-radius: 8px;
+	background-color: #8a8a8a;
+	color: #222 !important;
+	padding: 0 5px;
+	font-size: 18px !important;
+}
+.durationSpan > p {
+	margin: 5px 0 !important;
+	font-size: 14px;
+	color: #8a8a8a;
+}
+
+.buttonSpan {
+	gap: 10px;
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+}
+.buttonSpan > button {
+	font-size: 14px;
+	padding: 10px 20px;
+	border-radius: 40px;
+	border: none;
+	color: white;
+}
+
+.buttonSpan > button:nth-child(1) {
+	background-color: #d43530;
+}
+.buttonSpan > button:nth-last-child(1) {
+	background-color: #c94f17;
+}
+@media only screen and (max-width: 800px) {
+	#courses {
+		display: flex;
+	}
+	#headingAndSearch {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	#headingAndSearch > h1,
+	#headingAndSearch > input {
+		margin-left: 30px;
+	}
+
+	#headingAndSearch > input {
+		width: 88%;
+	}
+}

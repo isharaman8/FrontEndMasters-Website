@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+body,
+html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	color: #e6e6e6;
+	background-color: #222;
+}
+
+#upperMainDiv,
+#uppAuthorMain,
+.durationSpan,
+#bottomMainDiv {
+	display: flex;
+}
+
+#upperMainDiv {
+	justify-content: flex-start;
+	align-items: center;
+	gap: 20px;
+	padding: 30px;
+}
+#upperTextDiv > h1 {
+	margin: 0 auto 20px auto;
+	font-weight: 100;
+}
+
+#upperMainDiv > img {
+	width: 200px;
+	height: 200px;
+	margin-left: 70px;
+}
+
+#uppAuthorMain {
+	justify-content: flex-start;
+	align-items: center;
+	gap: 20px;
+}
+#uppAuthorMain > img {
+	border-radius: 50%;
+	width: 78px;
+	height: 78px;
+}
+
+#uppAuthorText > h3,
+#uppAuthorText > p {
+	margin: 0;
+	font-weight: 100;
+}
+#uppAuthorText > h3 {
+	font-size: 21px;
+}
+#uppAuthorText > p {
+	font-size: 16px;
+	color: #8a8a8a;
+}
+
+.durationSpan {
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	gap: 10px;
+	color: #8a8a8a;
+}
+.ccTag {
+	border: 1px solid grey;
+	border-radius: 8px;
+	background-color: #8a8a8a;
+	color: #222 !important;
+	padding: 0 3px;
+	font-size: 18px !important;
+}
+
+/* PREVIEW SECTION */
+#bottomMainDiv {
+	background-color: #000000;
+	margin-bottom: 100px;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+#bottomMainDiv > img {
+	width: 45%;
+	height: auto;
+}
+#bottomTextDiv {
+	width: 500px;
+	position: relative;
+	height: 400px;
+}
+
+#bottomTextDiv > p {
+	margin-top: 10%;
+	font-size: 14px;
+	line-height: 1.5;
+}
+#bottomTextDiv > p:nth-last-child(2) {
+	color: #8a8a8a !important;
+}
+
+#bottomTextDiv > button {
+	position: absolute;
+	bottom: 30px;
+	background-color: #d43530;
+	color: white;
+	height: 64px;
+	width: 90%;
+	padding: 20px 30px;
+	border-radius: 40px;
+	border: none;
+	font-size: 19px;
+}
+#bottomTextDiv > button:hover {
+	background-color: #ca4f4a;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+	/* UPPER SECTION */
+	#upperMainDiv > img {
+		margin-left: 0;
+	}
+	/* BOTTOM SECTION */
+	#bottomMainDiv > img {
+		width: 70%;
+		height: auto;
+	}
+	#bottomMainDiv {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+	#bottomTextDiv {
+		width: 93% !important;
+		height: 300px;
+	}
+	#bottomTextDiv > p:nth-child(1) {
+		margin-top: 5%;
+	}
+	#bottomTextDiv > p:nth-last-child(2) {
+		margin: 0;
+	}
+}
