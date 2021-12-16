@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	text-decoration: none;
+    box-sizing: border-box;
+}
+.gallery-cell {
+	height: 700px;
+	margin: auto;
+	width: 94%;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	grid-template-columns: repeat(3, 30%);
+	background-color: #0a57a3;
+}
+.gallery-cell hr {
+	max-width: 95%;
+}
+#carousel1 {
+	width: 100%;
+	background-color: #0a57a3;
+}
+.tweetLogo {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+.tweetMainDiv {
+	background-color: white;
+	border-radius: 20px;
+	position: relative;
+	padding: 15px;
+}
+
+.tweetMainDiv > img {
+	width: 35px;
+	height: 30px;
+}
+.tweetTextDiv > p:nth-child(1) {
+	font-size: 17px;
+	line-height: 1.4;
+}
+.tweetTextDiv > p:nth-last-child(1) {
+	color: #8a8a8a;
+	font-size: 14px;
+}
+.tweetUserMain {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	width: fit-content;
+}
+.tweetUserMain > img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.tweetUserText > h4,
+.tweetUserText > p {
+	margin: 0;
+}
+
+.tweetUserText > h4 {
+	margin: 0 auto 5px auto;
+}
+.tweetUserText > h4:hover {
+	text-decoration: underline;
+}
+.tweetUserText > p {
+	font-size: 14px;
+	color: grey;
+}
+/* .flickity-button {
+	background-color: #0a57a3 !important;
+} */
+/* no circle */
+.flickity-button {
+	background: transparent !important;
+}
+/* big previous & next buttons */
+.flickity-prev-next-button {
+	width: 100px !important;
+	height: 100px !important;
+}
+/* icon color */
+.flickity-button-icon {
+	fill: white !important;
+}
+/* hide disabled button */
+.flickity-button:disabled {
+	display: none;
+}
+.blueWord {
+	color: #1da1f2 !important;
+}
