@@ -336,6 +336,7 @@ nav ul li a:hover {
 	line-height: 80px;
 	font-weight: bold;
 }
+
 .footer-left ul {
 	list-style: none;
 	float: right;
@@ -364,18 +365,22 @@ nav ul li a:hover {
 }
 #joining {
 	display: flex;
-	justify-content: left;
+	justify-content: center;
 	align-items: center;
-	margin-top: -40px;
+	width: fit-content;
+}
+
+#joining a {
+	padding: 0 !important;
 }
 #joining a img {
 	width: 200px;
-	margin: auto;
+	height: 60px;
+	/* margin: auto; */
 }
 
 #row {
 	display: flex;
-
 	justify-content: space-around;
 }
 .social {

@@ -24,7 +24,7 @@ function footer() {
 					height="50px"
 					src="https://developer.apple.com/assets/elements/icons/download-on-the-app-store/download-on-the-app-store.svg"
 			/></a>
-			<a href=""><img src="Images/google play.png" /></a>
+			<a href=""><img src="/Images/newGoogle.png" /></a>
 		</div>
 		<div id="row">
 			<div class="social">
