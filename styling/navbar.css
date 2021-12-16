@@ -1,0 +1,31 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    
+}
+#header{
+    background-color: #fff;
+    height: 70px;
+    width: 100vw;
+    background-color: #622;
+    display: flex;
+    align-items: center;
+}
+
+#nav_logo{
+    height: 40px;
+    width: 250px;
+    border: 1px black dashed;
+}
+#header>ul{
+    border: 1px solid black;
+    height: 50px;
+    width: 390px;
+    display: flex;
+    list-style: none;
+
+}
+#header>ul>li{
+    width: 62px;
+    height: 50px;
+}
