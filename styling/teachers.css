@@ -1,0 +1,131 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.teachers {
+    background-color: #222;
+    width: 100vw;
+    max-height: 1200px;
+    max-height: fit-content;
+    font-size: 16px;
+    padding: 40px 30px;
+}
+
+.teachers>header {
+    color: white;
+    font-size: 36px;
+    font-weight: 900px;
+    height: 54px;
+    max-width: 1140px;
+    margin: auto;
+    line-height: 54px;
+}
+
+.teacher_div {
+    max-width: 1140px;
+    min-height: 970px;
+    margin: 30px auto 0px auto;
+    justify-content: space-between;
+}
+
+.teacher_list {
+    max-width: 1140px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+}
+
+hr {
+    margin: 10px auto 20px auto;
+    background-color: #fff;
+}
+
+.teacher_list_item {
+    padding: 20px;
+    width: 24%;
+    min-height: 100%;
+    /* margin-right: 2%; */
+    cursor: pointer;
+    margin-bottom: 40px;
+    background-color: #141414;
+    display: list-item;
+    color: white;
+}
+
+.teacher_img {
+    width: 100%;
+}
+
+.name {
+    color: #C02D28;
+    font-size: 21px;
+    height: 23px;
+    margin-bottom: 5px;
+}
+
+.job {
+    height: 25px;
+    color: #8D8D8D;
+    font-size: 17px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+}
+
+#past_btn{
+    /* border: 1px red dashed; */
+    background-color: #222;
+    color: #808080;
+    font-size: 27px;
+    margin: 100px auto 0px auto;
+    max-width: 1140px;
+    cursor: pointer;
+}
+
+#old_teachers{
+    display: none;
+}
+
+#old_teachers > header{
+    margin-top: 0px auto;
+    font-size: 27px;
+    font-weight: 600;
+    
+}
+
+.old_teachers_div{
+    margin-top: 5px;
+}
+
+
+
+
+@media only screen and (min-width: 765px) and (max-width: 1023px) {
+    .teacher_list_item {
+        width: 31%;
+        height: fit-content;
+    }
+}
+
+@media only screen and (min-width: 566px) and (max-width: 764px) {
+    .teacher_list_item {
+        width: 48%;
+        height: fit-content;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 565px) {
+    .teacher_list_item {
+        width: 90%;
+    }
+    .teachers>header {
+        font-size: 27px;
+        height: fit-content;
+        text-align: center;
+        line-height: 30px;
+        padding-top: 15px;
+    }
+}
