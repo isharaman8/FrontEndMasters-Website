@@ -6,29 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend Masters — Learn JavaScript, React, Vue &amp; Angular from Masters of Front-End Development!</title>
 <link rel="stylesheet" href="home.css">
-<link rel="stylesheet" href="">
+
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="https://frontendmasters.com/favicon-32x32.png"/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="https://frontendmasters.com/favicon-16x16.png"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
     <!-- Navbar Starts Here -->
-<nav>
+<nav id="navbar">
 
-    <input type="checkbox" name="" id="check">
-    <label for="check" class="check">
-        <i class="fa fa-bars" id="btn"></i>
-
-    </label>
-    <label class="logo"><a href="mainHome.html"><img src="https://static.frontendmasters.com/assets/fm/js/static/frontendmasters.e1e10b58c1.svg"></a></label>
-    
-    
-    <ul>
-        <li><a href="">Courses</a></li>
-        <li><a href="">Learn</a></li>
-        <li><a href="">Pricing</a></li>
-        <li><a href="">Login</a></li>
-        <li><a class="join" href="">Join Now</a></li>
-    </ul>
+   
 </nav>
 <!-- Navbar Ends Here -->
 <section class="background">
@@ -79,7 +75,7 @@
 
 <!-- Footer Starts Here -->
 <footer id="footer">
-    <div class="footer-wrap">
+    <!-- <div class="footer-wrap">
         <div class="footer-left">
             <label><img src="https://static.frontendmasters.com/assets/fm/js/static/frontendmasters.e1e10b58c1.svg"></label>
 
@@ -123,8 +119,14 @@
             </div>
   <div id="address">Frontend Masters is proudly made in Minneapolis, MN</div>
         </div>
-    </div>
+    </div> -->
 </footer>
 <!-- Footer Ends Here -->
 </body>
 </html>
+<script type="module">
+    import {navbar,footer} from './componant/navbar.js';
+    
+    document.getElementById('footer').innerHTML = footer();
+    document.getElementById('navbar').innerHTML = navbar();
+</script>

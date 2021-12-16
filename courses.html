@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles/courses.css" />
+		<link rel="stylesheet" href="home.css">
 		<link
 			rel="icon"
 			type="image/png"
@@ -21,7 +22,7 @@
 	</head>
 	<body>
 		<!-- HEADER SECTION -->
-		<div id="header"></div>
+		<nav id="navbar"></nav>
 		<!-- 
 			-
 			-
@@ -50,4 +51,8 @@
 		<!-- FOOTER SECTION -->
 	</body>
 </html>
-<script type="module" src="js/course_file.js"></script>
+<script type="module" src="js/course_file.js">
+	import navbar from "./componant/navbar.js";
+
+	document.getElementById("navbar").innerHTML = navbar();
+</script>
