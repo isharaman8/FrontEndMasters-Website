@@ -435,3 +435,39 @@ nav ul li a:hover {
 	font-size: 16px;
 	text-decoration: none;
 }
+
+@media (max-width: 768px) {
+	.footer-left label {
+		font-size: 20px;
+	}
+	.footer-left ul {
+		margin-right: 10%;
+	}
+	.footer-left ul li {
+		line-height: 40px;
+	}
+	.footer-left ul li a {
+		font-size: 14px;
+	}
+	.footer-left label img {
+		width: 150px;
+		height: 40px;
+	}
+	#joining {
+		margin-top: -20px;
+	}
+	#joining a img {
+		width: 150px;
+	}
+	.social img {
+		width: 30px;
+		height: 30px;
+		margin: 5px;
+	}
+	.contact span {
+		margin-right: -40px;
+	}
+	#text {
+		font-size: 14px;
+	}
+}
