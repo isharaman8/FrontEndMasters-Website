@@ -8,10 +8,10 @@ function footer() {
 			/></label>
 
 			<ul class="details">
-				<li><a href="#">Courses</a></li>
+				<li><a href="/courses.html">Courses</a></li>
 				<li><a href="#">Learn</a></li>
-				<li><a href="#">Teachers</a></li>
-				<li><a href="#">Guides</a></li>
+				<li><a href="/html/teachers.html">Teachers</a></li>
+				<li><a href="/html/guides.html">Guides</a></li>
 				<li><a href="#">Pricing</a></li>
 				<li><a href="#">Login</a></li>
 				<li><a href="#">Join Now</a></li>

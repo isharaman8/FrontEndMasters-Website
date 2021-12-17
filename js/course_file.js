@@ -3,7 +3,7 @@ import navbar from "../components/header.js";
 import footer from "../components/footer.js";
 
 // using components
-document.querySelector("#header").innerHTML = navbar();
+document.querySelector("#navbar").innerHTML = navbar();
 document.querySelector("#footer").innerHTML = footer();
 let id;
 
