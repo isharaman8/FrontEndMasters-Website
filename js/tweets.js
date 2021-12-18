@@ -1,4 +1,5 @@
 import tweetsArray from "../JSON/tweets.js";
+let windowQuery = window.matchMedia("(max-width: 900px)");
 
 const tweetDates = [
 	"3:33am · Mar 1, 2019",
@@ -70,10 +71,16 @@ const appendTweets = (tweets, appendingDiv) => {
 	});
 };
 
+const setHiddenClass = (arr) => {
+	for (let i = 0; i < 4; i++) {
+		arr[i].classList.add("hiddenClass");
+	}
+};
+
 // DEFINING PARTICULAR NO. OF TWEETS
 let tweetsOne = tweetsArray.slice(0, 6);
 let tweetsTwo = tweetsArray.slice(6, 12);
-let tweetsThree = tweetsArray.slice(10, 16);
+let tweetsThree = tweetsArray.slice(1, 7);
 
 // DEFINING APPENDING DIVS
 let tweetDiv1 = document.getElementById("cell1");
@@ -83,3 +90,15 @@ let tweetDiv3 = document.getElementById("cell3");
 appendTweets(tweetsOne, tweetDiv1);
 appendTweets(tweetsTwo, tweetDiv2);
 appendTweets(tweetsThree, tweetDiv3);
+
+window.addEventListener("DOMContentLoaded", () => {
+	let pageOneTweets = document.querySelectorAll("#cell1 >.tweetMainDiv");
+	let pageTwoTweets = document.querySelectorAll("#cell2 >.tweetMainDiv");
+	let pageThreeTweets = document.querySelectorAll("#cell3 >.tweetMainDiv");
+
+	for (let i = 0; i < 4; i++) {
+		pageOneTweets[i].classList.add("hiddenClass");
+		pageTwoTweets[i].classList.add("hiddenClass");
+		pageThreeTweets[i].classList.add("hiddenClass");
+	}
+});

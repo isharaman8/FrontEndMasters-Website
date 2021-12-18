@@ -1,5 +1,5 @@
 function footer() {
-	return `<footer id="footer">
+	return `
 	<div class="footer-wrap">
 		<div class="footer-left">
 			<label
@@ -8,10 +8,10 @@ function footer() {
 			/></label>
 
 			<ul class="details">
-				<li><a href="#">Courses</a></li>
+				<li><a href="/courses.html">Courses</a></li>
 				<li><a href="#">Learn</a></li>
-				<li><a href="#">Teachers</a></li>
-				<li><a href="#">Guides</a></li>
+				<li><a href="/html/teachers.html">Teachers</a></li>
+				<li><a href="/html/guides.html">Guides</a></li>
 				<li><a href="#">Pricing</a></li>
 				<li><a href="#">Login</a></li>
 				<li><a href="#">Join Now</a></li>
@@ -24,23 +24,23 @@ function footer() {
 					height="50px"
 					src="https://developer.apple.com/assets/elements/icons/download-on-the-app-store/download-on-the-app-store.svg"
 			/></a>
-			<a href=""><img src="Images/google play.png" /></a>
+			<a href=""><img src="/Images/newGoogle.png" /></a>
 		</div>
 		<div id="row">
 			<div class="social">
 				<a target="_blank" href="https://twitter.com/FrontendMasters"
-					><img src="Images/logo-twitter-png-5860.png"
+					><img src="/Images/logo-twitter-png-5860.png"
 				/></a>
 				<a
 					target="_blank"
 					href="https://www.linkedin.com/company/frontend-masters/"
-					><img src="Images/linkedin-logo-png-1853.png"
+					><img src="/Images/linkedin-logo-png-1853.png"
 				/></a>
 				<a target="_blank" href="https://www.facebook.com/FrontendMasters"
-					><img src="Images/facebook-logo-png-38347.png"
+					><img src="/Images/facebook-logo-png-38347.png"
 				/></a>
 				<a target="_blank" href="https://www.instagram.com/FrontendMasters"
-					><img src="Images/logo-ig-png-32459.png"
+					><img src="/Images/logo-ig-png-32459.png"
 				/></a>
 			</div>
 			<div class="contact">
@@ -70,7 +70,7 @@ function footer() {
 			</div>
 		</div>
 	</div>
-</footer>`;
+`;
 }
 
 export default footer;
