@@ -41,6 +41,8 @@ body {
 	font-weight: 100;
 	color: #7f4f50;
 	font-weight: 400;
+	position: relative;
+	width: 95%;
 }
 
 #prices > p {
@@ -48,6 +50,13 @@ body {
 	padding: 5px 0;
 	color: #7f4f50;
 	margin: 20px 20px 10px 0;
+	position: relative;
+}
+#prices > p > span,
+#prices + h2 > span {
+	margin-left: 39px;
+	position: absolute;
+	right: 0;
 }
 #prices > p:nth-last-child(1) {
 	margin-top: 5px;

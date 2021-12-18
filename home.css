@@ -219,8 +219,7 @@ nav ul li a:hover {
 }
 .overview a:hover {
 	opacity: 1;
-	height: 100px;
-	width: 100px;
+	transform: scale(1.2);
 	position: relative;
 }
 .javascript {
