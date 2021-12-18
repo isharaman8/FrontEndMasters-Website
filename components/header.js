@@ -11,7 +11,7 @@ function navbar() {
 	></label>
 
 	<ul>
-		<li><a href="">Courses</a></li>
+		<li><a href="/courses.html">Courses</a></li>
 		<li><a href="">Learn</a></li>
 		<li><a href="">Pricing</a></li>
 		<li><a href="">Login</a></li>

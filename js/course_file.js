@@ -1,4 +1,16 @@
 import courses from "/JSON/courses.js";
+import navbar from "../components/header.js";
+import footer from "../components/footer.js";
+
+// using components
+document.querySelector("#navbar").innerHTML = navbar();
+document.querySelector("#footer").innerHTML = footer();
+let id;
+
+// GLOBAL DIVS
+let allCourseDiv = document.querySelector("#allCourses");
+let popularCourseDiv = document.querySelector("#popularCourses");
+let searchCourseDiv = document.querySelector("#searchDiv");
 
 // ADDING DURATIONS
 const videoLengths = [
@@ -9,15 +21,27 @@ const videoLengths = [
 	"5 hrs 19 minutes",
 ];
 
+const popularVideo = [true, false];
+
 for (let i = 0; i < courses.length; i++) {
 	courses[i].duration =
 		videoLengths[Math.floor(Math.random() * videoLengths.length)];
 }
+for (let i = 0; i < courses.length; i++) {
+	courses[i].isPopular =
+		popularVideo[Math.floor(Math.random() * popularVideo.length)];
+}
 
-const appendCourses = (courses) => {
-	console.log(courses);
+function appendCourses(courses, appendingDiv) {
+	document.getElementById("allCourses").innerHTML = "";
+	document.getElementById("popularCourses").innerHTML = "";
+	document.querySelector("#searchDiv").innerHTML = "";
 
-	document.querySelector("#courses").innerHTML = "";
+	// SETTING CONDITION FOR APPENDING DIV
+	if (appendingDiv.id === "popularCourses") {
+		courses = courses.filter((course) => course.isPopular === true);
+	}
+
 	courses.forEach((course) => {
 		// CREATING ELEMENTS
 		const title = document.createElement("h2");
@@ -72,7 +96,7 @@ const appendCourses = (courses) => {
 		backgroundImg.classList.add("bigImage");
 
 		// EVENT LISTENERS
-		let previewListeners = [watchFreePrevBtn, backgroundImg];
+		let previewListeners = [watchFreePrevBtn, backgroundImg, title];
 		previewListeners.forEach((one) => {
 			one.addEventListener("click", () => {
 				goToPreviewPage(course);
@@ -95,11 +119,74 @@ const appendCourses = (courses) => {
 		mainDiv.append(backgroundImg, textDiv);
 
 		// APPENDING TO MAIN DIV
-		document.querySelector("#courses").append(mainDiv);
+		appendingDiv.append(mainDiv);
 	});
-};
+}
+
 function goToPreviewPage(course) {
 	localStorage.setItem("previewCourse", JSON.stringify(course));
 	window.location.href = "preview.html";
 }
-appendCourses(courses);
+
+function searchResults() {
+	let query = document.querySelector("#searchCourse").value;
+	if (!query) {
+		document.getElementById("allCoursesLi").click();
+		clearTimeout(id);
+		return;
+	}
+	let filteredData = courses.filter((course) => {
+		return course.courseName.toLowerCase().includes(query.toLowerCase());
+	});
+	// console.log(document.querySelector("#popularCourses").innerHTML);
+	// console.log(document.querySelector("#allCourses").innerHTML);
+
+	if (popularCourseDiv.innerHTML) {
+		document.querySelector("#headingAndSearch > h1").textContent =
+			"Popular Search Result";
+	} else {
+		document.querySelector("#headingAndSearch > h1").textContent =
+			"Course Search Results";
+	}
+	appendCourses(filteredData, searchCourseDiv);
+}
+
+function debouncing(func, delay) {
+	clearTimeout(id);
+	id = setTimeout(() => {
+		func();
+	}, delay);
+}
+// INITIALIZING MAIN FUNCTION
+appendCourses(courses, allCourseDiv);
+
+// GLOBAL EVENT LISTENERS
+
+document.querySelector("#popularLi").addEventListener("click", () => {
+	document.querySelector("#headingAndSearch > h1").textContent =
+		"View Popular Courses";
+	appendCourses(courses, popularCourseDiv);
+	document.querySelector("#allCoursesLi").style.backgroundColor = "#161616";
+	document.querySelector("#popularLi").style.backgroundColor = "#0a57a3";
+
+	// rgb(194, 194, 194);
+	console.log(document.querySelector("#popularLi").style.color);
+	document.querySelector("#popularLi").style.color = "white";
+	document.querySelector("#allCoursesLi").style.color = "rgb(194, 194, 194)";
+});
+
+document.querySelector("#allCoursesLi").addEventListener("click", () => {
+	document.querySelector("#headingAndSearch > h1").textContent =
+		"Frontend Masters Courses";
+
+	appendCourses(courses, allCourseDiv);
+	document.querySelector("#allCoursesLi").style.backgroundColor = "#0a57a3";
+	document.querySelector("#popularLi").style.backgroundColor = "#161616";
+
+	document.querySelector("#popularLi").style.color = "rgb(194, 194, 194)";
+	document.querySelector("#allCoursesLi").style.color = "white";
+});
+
+document.querySelector("#searchCourse").addEventListener("input", (event) => {
+	debouncing(searchResults, 1000);
+});
