@@ -54,8 +54,7 @@ body {
 }
 .cssItems a:hover {
 	opacity: 1;
-	height: 100px;
-	width: 100px;
+	transform: scale(1.2);
 	position: relative;
 }
 
@@ -117,16 +116,42 @@ body {
 	color: white !important;
 	justify-content: center;
 	align-items: center;
-	margin: auto;
+	margin: 50px auto;
 	gap: 25px;
 }
-#planSelect > .planTextDiv {
-	max-width: 220px;
+.planMainDiv {
+	position: relative;
+	max-width: 230px;
+}
+.planTextDiv {
+	max-width: 230px;
+	flex-basis: 20%;
+	flex-grow: 1;
+	display: inline-block;
+	box-sizing: border-box;
 	padding: 10px;
 	min-height: 150px;
-	position: relative;
-	background-color: #90221e;
-	border-top: 7px solid #c02d28;
+	background-color: #1a1a1a;
+	border-top: 7px solid #3e3e3e;
+}
+.tickIcon {
+	color: #d68b68;
+}
+.planRadioButton {
+	font-size: 100% !important;
+	padding: initial;
+	border: initial;
+}
+.planRadioButton {
+	display: none !important;
+}
+.planRadioButton:checked + .planTextDiv {
+	transform: scale(1.1) !important;
+	background-color: #90221e !important;
+	border-top: 7px solid #c02d28 !important;
+}
+.planRadioButton:checked + .planTextDiv .tickIcon {
+	color: white;
 }
 .planTextDiv > p {
 	line-height: 1.5;
@@ -147,7 +172,7 @@ body {
 	border-radius: 10px;
 	position: absolute;
 	right: 0;
-	margin-right: -20px;
+	margin-right: -7px;
 	background-color: #d85519;
 	top: 10px;
 }
@@ -243,4 +268,38 @@ input[type="submit"]:hover {
 }
 a {
 	color: #dd625e;
+}
+
+/* QUESTION SECTION */
+#bottomQuestion {
+	margin-bottom: 50px;
+}
+
+#bottomQuestion > h3,
+#bottomQuestion > p {
+	text-align: center;
+	color: #e6e6e6;
+}
+#bottomQuestion > h3 {
+	font-size: 27px;
+	font-weight: 100;
+	margin: 0;
+	padding: 0 0 10px 0;
+}
+
+#bottomQuestion > p {
+	font-size: 21px;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+@media only screen and (max-width: 900px) {
+	#planSelect {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		justify-content: center;
+		align-items: center;
+		place-items: center;
+		gap: 50px;
+	}
 }
