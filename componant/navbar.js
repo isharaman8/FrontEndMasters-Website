@@ -38,14 +38,14 @@ function footer(){
     </div>
     <div id="joining">
         <a href=""><img height="50px" src="https://developer.apple.com/assets/elements/icons/download-on-the-app-store/download-on-the-app-store.svg"></a>
-        <a href=""><img src="Images/google play.png"></a>
+        <a href=""><img src="/Images/google play.png"></a>
     </div> 
     <div id="row">
         <div class="social">
-            <a target="_blank" href="https://twitter.com/FrontendMasters"><img src="Images/logo-twitter-png-5860.png"></a>
-            <a target="_blank" href="https://www.linkedin.com/company/frontend-masters/"><img src="Images/linkedin-logo-png-1853.png"></a>
-            <a target="_blank" href="https://www.facebook.com/FrontendMasters"><img src="Images/facebook-logo-png-38347.png"></a>
-            <a target="_blank" href="https://www.instagram.com/FrontendMasters"><img src="Images/logo-ig-png-32459.png"></a>
+            <a target="_blank" href="https://twitter.com/FrontendMasters"><img src="/Images/logo-twitter-png-5860.png"></a>
+            <a target="_blank" href="https://www.linkedin.com/company/frontend-masters/"><img src="/Images/linkedin-logo-png-1853.png"></a>
+            <a target="_blank" href="https://www.facebook.com/FrontendMasters"><img src="/Images/facebook-logo-png-38347.png"></a>
+            <a target="_blank" href="https://www.instagram.com/FrontendMasters"><img src="/Images/logo-ig-png-32459.png"></a>
        </div> 
        <div class="contact">
            <span>
