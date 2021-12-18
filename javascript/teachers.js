@@ -72,3 +72,17 @@ function show_past() {
 
     })
 }
+
+
+import  {navbar, footer} from "/componant/navbar.js";
+
+ let nav_Data = navbar();
+
+ let footer_Data = footer();
+
+
+// console.log(nav_Data);
+// console.log(footer_Data);
+
+document.getElementById("my_header").innerHTML = (nav_Data);
+document.getElementById("footer").innerHTML = (footer_Data);
