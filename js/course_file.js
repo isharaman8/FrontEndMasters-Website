@@ -1,3 +1,5 @@
+const loginValid = JSON.parse(localStorage.getItem("loginFrontEndData")) || {};
+console.log(loginValid);
 import courses from "/JSON/courses.js";
 import navbar from "../components/header.js";
 import footer from "../components/footer.js";
@@ -80,6 +82,9 @@ function appendCourses(courses, appendingDiv) {
 		// buttons
 		watchFreePrevBtn.textContent = `Watch Free Preview`;
 		getFullAccessBtn.textContent = `Get Full Access`;
+
+		if (Object.entries(loginValid).length > 0)
+			getFullAccessBtn.style.display = "none";
 
 		//images
 		authorImg.src = course.authorImg;
