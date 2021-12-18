@@ -1,4 +1,9 @@
 import plans from "../../JSON/plans.js";
+import footer from "../../components/footer.js";
+import navbar from "../../components/header.js";
+
+document.querySelector("#header").innerHTML = navbar();
+document.querySelector("#footer").innerHTML = footer();
 document.querySelector("#register").addEventListener("submit", registerUser);
 
 function mapPlans(plans) {

@@ -10,9 +10,9 @@ function navbar() {
     <ul>
         <li><a href="/courses.html">Courses</a></li>
         <li><a href="/html/teachers.html">Learn</a></li>
-        <li><a href="">Pricing</a></li>
-        <li><a href="">Login</a></li>
-        <li><a class="join" href="">Join Now</a></li>
+        <li><a id="pricingLI" href="/LOGIN_SIGNUP/signup.html">Pricing</a></li>
+        <li><a id="loginLI" href="/LOGIN_SIGNUP/login.html">Login</a></li>
+        <li><a id="joinLI"  class="join" href="">Join Now</a></li>
     </ul>`;
 }
 

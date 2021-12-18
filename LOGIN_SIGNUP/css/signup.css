@@ -17,7 +17,9 @@ body {
 	font-size: 46px;
 	color: #e6e6e6;
 	text-align: center;
-	margin: 0 20px 10px 20px;
+	margin: 20px 20px 10px 20px;
+	border: 1px solid #222;
+	width: 100%;
 }
 #headings > h2 {
 	font-size: 28px;

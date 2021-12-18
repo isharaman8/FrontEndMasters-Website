@@ -7,7 +7,7 @@
 body {
 	font-family: "Open Sans", sans-serif;
 	text-decoration: none;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 .gallery-cell {
 	height: 700px;
@@ -17,8 +17,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	grid-template-columns: repeat(3, 30%);
+	grid-template-columns: repeat(3, auto);
 	background-color: #0a57a3;
+	place-items: center;
 }
 .gallery-cell hr {
 	max-width: 95%;
@@ -37,6 +38,8 @@ body {
 	border-radius: 20px;
 	position: relative;
 	padding: 15px;
+	max-width: 300px;
+	min-width: 120px;
 }
 
 .tweetMainDiv > img {
@@ -101,4 +104,19 @@ body {
 }
 .blueWord {
 	color: #1da1f2 !important;
+}
+@media only screen and (max-width: 900px) {
+	#cell1,
+	#cell2,
+	#cell3 {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tweetMainDiv {
+		max-width: 400px !important;
+	}
+	.hiddenClass {
+		display: none;
+	}
 }

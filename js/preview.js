@@ -1,4 +1,6 @@
 const singleCourse = JSON.parse(localStorage.getItem("previewCourse")) || {};
+const loggedInData =
+	JSON.parse(localStorage.getItem("loginFrontEndData")) || {};
 
 const upperSection = (singleCourse) => {
 	document.querySelector("#imageAndAuthor").innerHTML = "";
@@ -89,19 +91,17 @@ const bottomSection = (singleCourse) => {
 		randomDates[Math.floor(Math.random() * randomDates.length)]
 	}`;
 	fullAccessBtn.textContent = "Get Unlimited Access Now";
+	if (Object.entries(loggedInData).length > 0) {
+		fullAccessBtn.style.display = "none";
+	}
 
 	// ADDING CLASSES AND IDS
 	bottomTextDiv.id = "bottomTextDiv";
 	bottomMainDiv.id = "bottomMainDiv";
 
-	/*
-	-
-	-
-	EVENT LISTENER FOR BUTTON
-	-
-	-
-	-
-	*/
+	fullAccessBtn.addEventListener("click", () => {
+		window.location.href = "/LOGIN_SIGNUP/signup.html";
+	});
 
 	// APPENDING
 	bottomTextDiv.append(description, publishedAt, fullAccessBtn);
