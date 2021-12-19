@@ -53,7 +53,7 @@
 <h3>Jishan Pathan</h3>
 <ul>
   <li>Github: <a href= "https://github.com/jishanpatel7" >jishanpatel7</a></li>
-  <li>Email:    </li>
+  <li>Email:  jishanpatel78@gmail.com  </li>
   <li>LinkedIn: <a href="https://www.linkedin.com/in/jishan-pathan-5b398b198/">https://www.linkedin.com/in/jishan-pathan-5b398b198/ </a></li>
 </ul>
 
