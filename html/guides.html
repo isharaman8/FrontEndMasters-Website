@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <header>
-
-    </header>
+    <nav id="navbar"></nav>
     <section id="guides">
         <header>
             Frontend Masters Books
@@ -23,6 +21,11 @@
             </ul>
         </div>
     </section>
-
+	<footer id="footer"></footer>
 </body>
 </html>
+<script type="module">
+    import {navbar, footer} from "/componant/navbar.js";
+    document.getElementById("navbar").innerHTML = navbar();
+    document.getElementById("footer").innerHTML = footer();
+</script>
