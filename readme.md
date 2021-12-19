@@ -71,8 +71,8 @@
 <h3>Nikhil Shakya</h3>
 <ul>
   <li>Github:  <a href= "https://github.com/devmanush-forEach" >devmanush-forEach</a></li>
-  <li>Email: </li>
-  <li>LinkedIn: <a href=""> </a></li>
+  <li>Email:shakyanikhil12345@gmail.com </li>
+  <li>LinkedIn: <a href="https://www.linkedin.com/in/nikhil-shakya-3a1939213/">https://www.linkedin.com/in/nikhil-shakya-3a1939213/ </a></li>
 </ul>
 
 <br>
