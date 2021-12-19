@@ -1,5 +1,7 @@
 import { teachersData, oldTeachers } from "/javascript/teachersData.js";
-
+import {navbar, footer} from "/componant/navbar.js";
+document.getElementById("navbar").innerHTML = navbar();
+document.getElementById("footer").innerHTML = footer();
 showTeachers();
 // console.log(oldTeachers);
 function showTeachers() {

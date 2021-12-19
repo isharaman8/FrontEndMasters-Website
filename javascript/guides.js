@@ -1,3 +1,9 @@
+import {navbar, footer} from "/componant/navbar.js";
+document.getElementById("navbar").innerHTML = navbar();
+document.getElementById("footer").innerHTML = footer();
+
+
+
 import data from "/javascript/guidesData.js";
 showGuides();
 function showGuides() {
