@@ -588,8 +588,15 @@
 </body>
 </html>
 
-<script>
-    
+<script type="module">
+    import courses from "/JSON/courses.js";
+import navbar from "../components/header.js";
+import footer from "../components/footer.js";
+
+// using components
+document.querySelector("#navbar").innerHTML = navbar();
+document.querySelector("#footer").innerHTML = footer();
+
     let number=document.getElementById("number")
     let number1=document.getElementById("number1")
     let number2=document.getElementById("number2")
