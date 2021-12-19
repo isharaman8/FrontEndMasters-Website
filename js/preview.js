@@ -113,10 +113,10 @@ const bottomSection = (singleCourse) => {
 upperSection(singleCourse);
 bottomSection(singleCourse);
 
-import courses from "/JSON/courses.js";
-import navbar from "../components/header.js";
-import footer from "../components/footer.js";
+// import courses from "/JSON/courses.js";
+// import navbar from "../components/header.js";
+// import footer from "../components/footer.js";
 
-// using components
-document.querySelector("#navbar").innerHTML = navbar();
-document.querySelector("#footer").innerHTML = footer();
+// // using components
+// document.querySelector("#navbar").innerHTML = navbar();
+// document.querySelector("#footer").innerHTML = footer();
