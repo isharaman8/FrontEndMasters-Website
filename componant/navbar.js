@@ -9,7 +9,7 @@ function navbar() {
     
     <ul>
         <li><a href="/courses.html">Courses</a></li>
-        <li><a href="/html/teachers.html">Learn</a></li>
+        <li><a href="/contructweekproject/circlelogo.html">Learn</a></li>
         <li><a id="pricingLI" href="/LOGIN_SIGNUP/signup.html">Pricing</a></li>
         <li><a id="loginLI" href="/LOGIN_SIGNUP/login.html">Login</a></li>
         <li><a id="joinLI"  class="join" href="">Join Now</a></li>
@@ -23,7 +23,7 @@ function footer() {
 
         <ul class="details">
             <li><a href="/courses.html">Courses</a></li>
-            <li><a href="#">Learn</a></li>
+            <li><a href="/contructweekproject/circlelogo.html">Learn</a></li>
            <li><a href="/html/teachers.html">Teachers</a></li>
            <li> <a href="/html/guides.html">Guides</a></li>
             <li><a href="#">Pricing</a></li>
