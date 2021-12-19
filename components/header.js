@@ -5,7 +5,7 @@ function navbar() {
 		<i class="fa fa-bars" id="btn"></i>
 	</label>
 	<label class="logo"
-		><a href="mainHome.html"
+		><a href="/mainHome.html"
 			><img
 				src="https://static.frontendmasters.com/assets/fm/js/static/frontendmasters.e1e10b58c1.svg" /></a
 	></label>
