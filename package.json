@@ -1,0 +1,21 @@
+{
+  "name": "FrontEndMasters-Website-Clone",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/jishanpatel7/FrontEndMasters-Website-Clone",
+  "author": "Aman Kumar <isharaman8@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^14.1.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.7",
+    "multer": "^1.4.4",
+    "passport": "^0.5.2",
+    "passport-google-oauth2": "^0.2.0"
+  }
+}
