@@ -7,6 +7,7 @@ const {
 	createCourses,
 	getCourses,
 } = require("../controllers/courses.controller");
+
 router.route("/test").get(getCoursesStatic);
 router
 	.route("/")

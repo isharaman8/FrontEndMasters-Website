@@ -11,8 +11,10 @@ const getCoursesStatic = async (req, res) => {
 		if (courses) return res.status(OK).send(JSON.parse(courses));
 		else {
 			courses = await Course.find().lean().exec();
-			await redis.set(`courses`, JSON.stringify(courses));
-			return res.status(OK).send(courses);
+			if (courses.length !== 0) {
+				await redis.set(`courses`, JSON.stringify(courses));
+				return res.status(OK).send(courses);
+			} else return res.status(OK).send(courses);
 		}
 	} catch (err) {
 		console.log("Error", err);
@@ -27,7 +29,9 @@ const getCourses = async (req, res) => {
 		if (courseName) {
 			queryObject.courseName = { $regex: courseName, $options: "i" };
 		}
-		const courses = await Course.find(queryObject);
+		let courses = Course.find(queryObject);
+		courses = await courses.populate("author");
+
 		return res.status(OK).send({ courses, courseCount: courses.length });
 	} catch (err) {
 		console.log("Error", err);
