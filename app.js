@@ -13,6 +13,6 @@ app.use(express.json());
 app.use("/api/v1/courses", coursesRouter);
 
 app.listen(3000, async () => {
-	await connectDB(process.env.MONGO_URI);
+	await connectDB(process.env.MONGO_URI_TEST);
 	console.log(`app is listening on port 3000...`);
 });
