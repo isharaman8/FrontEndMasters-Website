@@ -28,7 +28,7 @@ function checkValidUser(data, loginObj) {
 	if (data.error == false) {
 		alert("Login Successful");
 		localStorage.setItem("loginFrontEndData", JSON.stringify(loginObj));
-		window.location.href = "/mainHome.html";
+		window.location.href = "/index.html";
 	} else {
 		alert("Login Failed");
 		return;
