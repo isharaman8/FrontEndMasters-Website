@@ -26,14 +26,26 @@ const getCourses = async (req, res) => {
 	try {
 		const queryObject = {};
 		const { courseName, author, popular } = req.query;
+		let key = [];
+
 		if (courseName) {
 			queryObject.courseName = { $regex: courseName, $options: "i" };
+			key.push(courseName);
 		}
 
 		let courses;
-
 		// Author Query
 		if (author) {
+			courses = await redis.get(`courses.authors.${author}`);
+			if (courses) {
+				let parsedCourses = JSON.parse(courses);
+				return res.status(OK).send({
+					courses: parsedCourses,
+					nbHits: parsedCourses.length,
+					redis: true,
+				});
+			}
+
 			courses = await Course.aggregate([
 				{
 					$lookup: {
@@ -49,13 +61,35 @@ const getCourses = async (req, res) => {
 					},
 				},
 			]).exec();
-			return res.status(OK).send(courses);
+			await redis.set(`courses.authors.${author}`, JSON.stringify(courses));
+			return res.status(OK).send({
+				courses,
+				nbHits: courses.length,
+				redis: false,
+			});
 		}
 		if (popular) {
 			queryObject.popular = popular === "true" ? true : false;
+			key.push(popular);
 		}
+
+		courses = await redis.get(`courses.${key.join(".")}`);
+		if (courses) {
+			let parsedCourses = JSON.parse(courses);
+			return res.status(OK).send({
+				courses: parsedCourses,
+				courseCount: parsedCourses.length,
+				redis: true,
+			});
+		}
+
 		courses = await Course.find(queryObject).populate("author");
-		return res.status(OK).send({ courses, courseCount: courses.length });
+		if (courses.length !== 0)
+			await redis.set(`courses.${key.join(".")}`, JSON.stringify(courses));
+
+		return res
+			.status(OK)
+			.send({ courses, courseCount: courses.length, redis: false });
 	} catch (err) {
 		console.log("Error", err);
 		return res.status(INTERNAL_SERVER_ERROR).send({ err: err.message });
