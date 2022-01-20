@@ -2,6 +2,7 @@ const singleCourse = JSON.parse(localStorage.getItem("previewCourse")) || {};
 const loggedInData =
 	JSON.parse(localStorage.getItem("loginFrontEndData")) || {};
 
+console.log(singleCourse);
 const upperSection = (singleCourse) => {
 	document.querySelector("#imageAndAuthor").innerHTML = "";
 
@@ -28,11 +29,11 @@ const upperSection = (singleCourse) => {
 
 	// SETTING ATTTRIBUTES AND TEXT CONTENTS
 	bgImage.src = singleCourse.webpImg;
-	authorImg.src = singleCourse.authorImg;
+	authorImg.src = singleCourse.author.authorImg;
 
 	heading.textContent = singleCourse.courseName;
-	authorName.textContent = singleCourse.author;
-	authorJob.textContent = singleCourse.authorJob;
+	authorName.textContent = singleCourse.author.author;
+	authorJob.textContent = singleCourse.author.authorJob;
 	videoDuration.textContent = singleCourse.duration;
 	ccTag.textContent = "cc";
 
@@ -74,22 +75,12 @@ const bottomSection = (singleCourse) => {
 	const bottomTextDiv = document.createElement("div");
 
 	// SETTING ATTRIBUTES AND TEXT CONTENTS
-	previewImg.src = singleCourse.previewImages;
-	description.textContent = singleCourse.desc;
+	previewImg.src = singleCourse.previewImage;
+	description.textContent = singleCourse.description;
 
 	// random published dates
-	const randomDates = [
-		"December 7, 2021",
-		"January 17, 2020",
-		"August 5, 2021",
-		"September 10, 2020",
-		"March 5, 2021",
-		"July 12, 2020",
-	];
 
-	publishedAt.textContent = `Published: ${
-		randomDates[Math.floor(Math.random() * randomDates.length)]
-	}`;
+	publishedAt.textContent = `Published: ${singleCourse.publishedAt}`;
 	fullAccessBtn.textContent = "Get Unlimited Access Now";
 	if (Object.entries(loggedInData).length > 0) {
 		fullAccessBtn.style.display = "none";

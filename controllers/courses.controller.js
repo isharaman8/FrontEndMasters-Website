@@ -25,7 +25,7 @@ const getCoursesStatic = async (req, res) => {
 const getCourses = async (req, res) => {
 	try {
 		const queryObject = {};
-		const { courseName, author } = req.query;
+		const { courseName, author, popular } = req.query;
 		if (courseName) {
 			queryObject.courseName = { $regex: courseName, $options: "i" };
 		}
@@ -50,6 +50,9 @@ const getCourses = async (req, res) => {
 				},
 			]).exec();
 			return res.status(OK).send(courses);
+		}
+		if (popular) {
+			queryObject.popular = popular === "true" ? true : false;
 		}
 		courses = await Course.find(queryObject).populate("author");
 		return res.status(OK).send({ courses, courseCount: courses.length });

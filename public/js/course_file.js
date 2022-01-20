@@ -1,8 +1,25 @@
 const loginValid = JSON.parse(localStorage.getItem("loginFrontEndData")) || {};
-console.log(loginValid);
-import courses from "/JSON/courses.js";
+
+// import courses from "/JSON/courses.js";
 import navbar from "../components/header.js";
 import footer from "../components/footer.js";
+// import { get } from "express/lib/response";
+
+async function getCourses(queries = "") {
+	let url = `http://127.0.0.1:3000/api/v1/courses`;
+	if (queries) {
+		url = `${url}?${queries}`;
+	}
+	console.log(url);
+	let api = await fetch(url);
+	let courses = await api.json();
+	return courses;
+}
+
+(async () => {
+	const courses = await getCourses();
+	appendCourses(courses.courses, allCourseDiv);
+})();
 
 // using components
 document.querySelector("#navbar").innerHTML = navbar();
@@ -14,35 +31,12 @@ let allCourseDiv = document.querySelector("#allCourses");
 let popularCourseDiv = document.querySelector("#popularCourses");
 let searchCourseDiv = document.querySelector("#searchDiv");
 
-// ADDING DURATIONS
-const videoLengths = [
-	"3 hrs 30 minutes",
-	"2 hrs 11 minutes",
-	"5 hrs 44 minutes",
-	"1 hr 17 minutes",
-	"5 hrs 19 minutes",
-];
-
-const popularVideo = [true, false];
-
-for (let i = 0; i < courses.length; i++) {
-	courses[i].duration =
-		videoLengths[Math.floor(Math.random() * videoLengths.length)];
-}
-for (let i = 0; i < courses.length; i++) {
-	courses[i].isPopular =
-		popularVideo[Math.floor(Math.random() * popularVideo.length)];
-}
-
-function appendCourses(courses, appendingDiv) {
+async function appendCourses(courses, appendingDiv) {
 	document.getElementById("allCourses").innerHTML = "";
 	document.getElementById("popularCourses").innerHTML = "";
 	document.querySelector("#searchDiv").innerHTML = "";
 
 	// SETTING CONDITION FOR APPENDING DIV
-	if (appendingDiv.id === "popularCourses") {
-		courses = courses.filter((course) => course.isPopular === true);
-	}
 
 	courses.forEach((course) => {
 		// CREATING ELEMENTS
@@ -73,9 +67,9 @@ function appendCourses(courses, appendingDiv) {
 
 		// SETTING ATTRIBUTES AND TEXT CONTENTS
 		title.textContent = course.courseName;
-		authorName.textContent = course.author;
-		authorJob.textContent = course.authorJob;
-		description.textContent = course.desc;
+		authorName.textContent = course.author.author;
+		authorJob.textContent = course.author.authorJob;
+		description.textContent = course.description;
 		duration.textContent = course.duration;
 		ccTag.textContent = `cc`;
 
@@ -87,7 +81,7 @@ function appendCourses(courses, appendingDiv) {
 			getFullAccessBtn.style.display = "none";
 
 		//images
-		authorImg.src = course.authorImg;
+		authorImg.src = course.author.authorImg;
 		backgroundImg.src = course.webpImg;
 
 		// adding classes
@@ -133,18 +127,14 @@ function goToPreviewPage(course) {
 	window.location.href = "preview.html";
 }
 
-function searchResults() {
+async function searchResults() {
 	let query = document.querySelector("#searchCourse").value;
 	if (!query) {
 		document.getElementById("allCoursesLi").click();
 		clearTimeout(id);
 		return;
 	}
-	let filteredData = courses.filter((course) => {
-		return course.courseName.toLowerCase().includes(query.toLowerCase());
-	});
-	// console.log(document.querySelector("#popularCourses").innerHTML);
-	// console.log(document.querySelector("#allCourses").innerHTML);
+	let filteredData = await getCourses(`courseName=${query}`);
 
 	if (popularCourseDiv.innerHTML) {
 		document.querySelector("#headingAndSearch > h1").textContent =
@@ -153,7 +143,7 @@ function searchResults() {
 		document.querySelector("#headingAndSearch > h1").textContent =
 			"Course Search Results";
 	}
-	appendCourses(filteredData, searchCourseDiv);
+	appendCourses(filteredData.courses, searchCourseDiv);
 }
 
 function debouncing(func, delay) {
@@ -163,28 +153,29 @@ function debouncing(func, delay) {
 	}, delay);
 }
 // INITIALIZING MAIN FUNCTION
-appendCourses(courses, allCourseDiv);
 
 // GLOBAL EVENT LISTENERS
 
-document.querySelector("#popularLi").addEventListener("click", () => {
+document.querySelector("#popularLi").addEventListener("click", async () => {
 	document.querySelector("#headingAndSearch > h1").textContent =
 		"View Popular Courses";
-	appendCourses(courses, popularCourseDiv);
+	const courses = await getCourses(`popular=true`);
+	appendCourses(courses.courses, popularCourseDiv);
 	document.querySelector("#allCoursesLi").style.backgroundColor = "#161616";
 	document.querySelector("#popularLi").style.backgroundColor = "#0a57a3";
 
 	// rgb(194, 194, 194);
-	console.log(document.querySelector("#popularLi").style.color);
+
 	document.querySelector("#popularLi").style.color = "white";
 	document.querySelector("#allCoursesLi").style.color = "rgb(194, 194, 194)";
 });
 
-document.querySelector("#allCoursesLi").addEventListener("click", () => {
+document.querySelector("#allCoursesLi").addEventListener("click", async () => {
 	document.querySelector("#headingAndSearch > h1").textContent =
 		"Frontend Masters Courses";
 
-	appendCourses(courses, allCourseDiv);
+	const courses = await getCourses();
+	appendCourses(courses.courses, allCourseDiv);
 	document.querySelector("#allCoursesLi").style.backgroundColor = "#0a57a3";
 	document.querySelector("#popularLi").style.backgroundColor = "#161616";
 
