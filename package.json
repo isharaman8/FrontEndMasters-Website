@@ -1,11 +1,14 @@
 {
-  "name": "FrontEndMasters-Website-Clone",
+  "name": "frontendmasters-website-clone",
   "version": "1.0.0",
   "scripts": {
     "start": "nodemon app.js"
   },
   "main": "index.js",
-  "repository": "https://github.com/jishanpatel7/FrontEndMasters-Website-Clone",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jishanpatel7/FrontEndMasters-Website-Clone.git"
+  },
   "author": "Aman Kumar <isharaman8@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -19,5 +22,11 @@
     "passport": "^0.5.2",
     "passport-google-oauth2": "^0.2.0",
     "redis": "^4.0.2"
-  }
+  },
+  "description": "<h1>Front End Masters Clone</h1>",
+  "bugs": {
+    "url": "https://github.com/jishanpatel7/FrontEndMasters-Website-Clone/issues"
+  },
+  "homepage": "https://github.com/jishanpatel7/FrontEndMasters-Website-Clone#readme",
+  "keywords": []
 }
