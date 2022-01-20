@@ -25,13 +25,33 @@ const getCoursesStatic = async (req, res) => {
 const getCourses = async (req, res) => {
 	try {
 		const queryObject = {};
-		const { courseName } = req.query;
+		const { courseName, author } = req.query;
 		if (courseName) {
 			queryObject.courseName = { $regex: courseName, $options: "i" };
 		}
-		let courses = Course.find(queryObject);
-		courses = await courses.populate("author");
 
+		let courses;
+
+		// Author Query
+		if (author) {
+			courses = await Course.aggregate([
+				{
+					$lookup: {
+						from: "authors",
+						localField: "author",
+						foreignField: "_id",
+						as: "author",
+					},
+				},
+				{
+					$match: {
+						"author.author": { $regex: author, $options: "i" },
+					},
+				},
+			]).exec();
+			return res.status(OK).send(courses);
+		}
+		courses = await Course.find(queryObject).populate("author");
 		return res.status(OK).send({ courses, courseCount: courses.length });
 	} catch (err) {
 		console.log("Error", err);

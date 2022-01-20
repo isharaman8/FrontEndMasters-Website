@@ -3,7 +3,7 @@ const path = require("path");
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		if (authorImg in req.body) {
+		if (req?.body?.author) {
 			cb(null, path.join(__dirname, "../uploads/authorImages"));
 		} else cb(null, path.join(__dirname, "../uploads/coursesImages"));
 	},

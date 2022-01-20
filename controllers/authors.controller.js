@@ -15,4 +15,17 @@ const getAuthorsStatic = async (req, res) => {
 	}
 };
 
-module.exports = { getAuthorsStatic };
+const createAuthor = async (req, res) => {
+	try {
+		const author = req.body;
+		author.authorImg = req.file.path;
+		await Author.create(author);
+
+		return res.status(OK).send(author);
+	} catch (err) {
+		console.log(err);
+		return res.status(INTERNAL_SERVER_ERROR).send({ err: err.message });
+	}
+};
+
+module.exports = { getAuthorsStatic, createAuthor };
