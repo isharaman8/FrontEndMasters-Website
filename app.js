@@ -6,6 +6,7 @@ require("dotenv").config();
 // Routes Imports
 const coursesRouter = require("./routes/courses.router");
 const authorRouter = require("./routes/authors.test.route");
+const userRouter = require("./routes/user.test.router");
 
 app.use(express.static("./public"));
 app.use(express.json());
@@ -15,6 +16,9 @@ app.use("/api/v1/courses", coursesRouter);
 
 // Authors route;
 app.use("/api/v1/author", authorRouter);
+
+// User Router
+app.use("/api/v1/users", userRouter);
 
 app.listen(3000, async () => {
 	await connectDB(process.env.MONGO_URI_TEST);
