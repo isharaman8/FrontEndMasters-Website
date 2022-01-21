@@ -7,6 +7,7 @@ require("dotenv").config();
 const coursesRouter = require("./routes/courses.router");
 const authorRouter = require("./routes/authors.test.route");
 const userRouter = require("./routes/user.test.router");
+const tweetsRouter = require("./routes/tweets.route");
 
 app.use(express.static("./public"));
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use("/api/v1/courses", coursesRouter);
 
 // Authors route;
 app.use("/api/v1/author", authorRouter);
+app.use("/api/v1/tweets", tweetsRouter);
 
 // User Router
 app.use("/api/v1/users", userRouter);

@@ -107,4 +107,5 @@ const tweetsArray = [
 		),
 	},
 ];
-export default tweetsArray;
+//export default tweetsArray;
+module.exports = tweetsArray;

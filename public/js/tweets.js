@@ -1,4 +1,4 @@
-import tweetsArray from "../JSON/tweets.js";
+
 let windowQuery = window.matchMedia("(max-width: 900px)");
 
 const tweetDates = [
@@ -102,3 +102,21 @@ window.addEventListener("DOMContentLoaded", () => {
 		pageThreeTweets[i].classList.add("hiddenClass");
 	}
 });
+
+
+async function getCourses(queries = "") {
+	let url = `http://127.0.0.1:3000/api/v1/tweets`;
+	if (queries) {
+		url = `${url}?${queries}`;
+	}
+	console.log(url);
+	let api = await fetch(url);
+	let tweeets = await api.json();
+	return tweeets;
+}
+
+(async () => {
+	const tweets = await getCourses();
+	console.log(tweets);
+	//appendTweets(courses.courses, allCourseDiv);
+})();
