@@ -25,7 +25,6 @@ const loginUser = async (event) => {
 };
 
 function checkValidUser(data, loginObj) {
-	console.log(data);
 	if (data?.token !== undefined) {
 		alert("Login Successful");
 		localStorage.setItem("loginFrontEndData", JSON.stringify(loginObj));

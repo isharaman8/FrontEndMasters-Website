@@ -11,7 +11,7 @@ const courseSchema = new Schema(
 		author: {
 			type: Schema.Types.ObjectId,
 			ref: "author",
-			required: false,
+			required: true,
 		},
 		description: {
 			type: String,

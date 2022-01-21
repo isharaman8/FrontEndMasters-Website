@@ -27,9 +27,18 @@ const userSchema = new Schema(
 			type: Number,
 			required: true,
 		},
+		roles: [
+			{
+				type: String,
+				enum: {
+					values: ["admin", "user"],
+				},
+				default: "user",
+			},
+		],
 		course_purchased: {
 			type: String,
-			required: true,
+			required: false,
 			enum: {
 				values: ["monthly", "yearly", "monthly_team", "yearly_team"],
 			},

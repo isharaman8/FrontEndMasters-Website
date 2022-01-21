@@ -13,6 +13,7 @@ const generateToken = (user) => {
 			first_name: user.first_name,
 			last_name: user.last_name,
 			username: user.username,
+			roles: user.roles || "user",
 		},
 		process.env.SECRET_HASH
 	);
@@ -20,7 +21,9 @@ const generateToken = (user) => {
 
 const getUsers = async (req, res) => {
 	try {
-		const users = await User.find().lean().exec();
+		const users = await User.find({ roles: { $not: { $in: ["admin"] } } })
+			.lean()
+			.exec();
 		return res.status(OK).send(users);
 	} catch (err) {
 		console.log("Error", err);
@@ -38,6 +41,7 @@ const registerUser = async (req, res) => {
 		}
 
 		user = await User.create(req.body);
+		delete user.roles;
 		let token = generateToken(user);
 		return res.status(OK).send({ user, token });
 	} catch (err) {
@@ -64,6 +68,7 @@ const loginUser = async (req, res) => {
 				.send({ message: `Email id or password incorrect` });
 		}
 
+		delete user.roles;
 		const token = generateToken(user);
 		return res.status(OK).send({ user, token });
 	} catch (err) {
@@ -78,6 +83,8 @@ const deleteUser = async (req, res) => {
 		if (!user) {
 			return res.status(BAD_REQUEST).send({ message: `No user found` });
 		}
+
+		delete user.roles;
 		return res.status(OK).send(user);
 	} catch (err) {
 		console.log("Error", err);

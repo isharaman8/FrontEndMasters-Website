@@ -81,8 +81,14 @@ async function appendCourses(courses, appendingDiv) {
 			getFullAccessBtn.style.display = "none";
 
 		//images
+
 		authorImg.src = course.author.authorImg;
-		backgroundImg.src = course.webpImg;
+
+		let webImage = course.webpImg;
+		if (!webImage.startsWith("https")) {
+			webImage = `http://127.0.0.1:3000/static/images/courses/${webImage}`;
+		}
+		backgroundImg.src = webImage;
 
 		// adding classes
 		ccTag.classList.add("ccTag");

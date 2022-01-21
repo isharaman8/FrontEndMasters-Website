@@ -1,5 +1,6 @@
 // Local Storages
 const userPlan = JSON.parse(localStorage.getItem("frontEndUserPlan")) || [];
+console.log(userPlan);
 
 function placeValues(userPlan) {
 	let planName;
@@ -16,12 +17,12 @@ function placeValues(userPlan) {
 			planPrice = "$390";
 			break;
 
-		case "monthly_t":
+		case "monthly_team":
 			planName = "MONTHLY TEAM";
 			planPrice = "$195";
 			break;
 
-		case "yearly_t":
+		case "yearly_team":
 			planName = "YEARLY TEAM";
 			planPrice = "$1950";
 			break;

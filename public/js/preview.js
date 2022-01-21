@@ -28,7 +28,13 @@ const upperSection = (singleCourse) => {
 	const uppAuthorText = document.createElement("div");
 
 	// SETTING ATTTRIBUTES AND TEXT CONTENTS
-	bgImage.src = singleCourse.webpImg;
+	let webImage = singleCourse.webpImg;
+	if (!webImage.startsWith("https")) {
+		webImage = `http://127.0.0.1:3000/static/images/courses/${webImage}`;
+	}
+	console.log(webImage);
+	bgImage.src = webImage;
+
 	authorImg.src = singleCourse.author.authorImg;
 
 	heading.textContent = singleCourse.courseName;
@@ -75,7 +81,14 @@ const bottomSection = (singleCourse) => {
 	const bottomTextDiv = document.createElement("div");
 
 	// SETTING ATTRIBUTES AND TEXT CONTENTS
-	previewImg.src = singleCourse.previewImage;
+
+	let previewImage = singleCourse.previewImage;
+
+	if (!previewImage.startsWith("https")) {
+		previewImage = `http://127.0.0.1:3000/static/images/courses/${previewImage}`;
+	}
+	console.log(previewImage);
+	previewImg.src = previewImage;
 	description.textContent = singleCourse.description;
 
 	// random published dates

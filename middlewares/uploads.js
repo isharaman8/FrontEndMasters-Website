@@ -5,10 +5,10 @@ const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		if (req.body?.author) {
 			cb(null, path.join(__dirname, "../uploads/authorImages"));
-		} else if(req.body?.tweet){
+		} else if (req.body?.tweet) {
 			cb(null, path.join(__dirname, "../uploads/tweets"));
-		}else {
-		cb(null, path.join(__dirname, "../uploads/coursesImages"))
+		} else {
+			cb(null, path.join(__dirname, "../uploads/coursesImages"));
 		}
 	},
 	filename: (req, file, cb) => {

@@ -99,8 +99,9 @@ const getCourses = async (req, res) => {
 const createCourses = async (req, res) => {
 	try {
 		let course = req.body;
-		let webpPath = req.files.webpImg[0].path;
-		let previewPath = req.files.previewImage[0].path;
+		let webpPath = req.files.webpImg[0].filename;
+
+		let previewPath = req.files.previewImage[0].filename;
 
 		course.webpImg = webpPath;
 		course.previewImage = previewPath;
