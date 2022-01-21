@@ -1,9 +1,13 @@
 const Course = require("../models/courses.model");
 const redis = require("../config/redis");
+const fs = require("fs");
+const path = require("path");
 
-const { StatusCodes } = require("http-status-codes");
-
-const { INTERNAL_SERVER_ERROR, OK } = StatusCodes;
+const {
+	INTERNAL_SERVER_ERROR,
+	OK,
+	BAD_REQUEST,
+} = require("../utils/error_codes");
 
 const getCoursesStatic = async (req, res) => {
 	try {
@@ -126,4 +130,44 @@ const createCourses = async (req, res) => {
 	}
 };
 
-module.exports = { getCoursesStatic, createCourses, getCourses };
+const deleteCourse = async (req, res) => {
+	try {
+		const course = await Course.findByIdAndDelete(req.params.id);
+		if (!course) {
+			return res.status(BAD_REQUEST).send({ message: `Course not found` });
+		}
+		await redis.del(`courses.${course._id}`);
+
+		let courses = await Course.find().lean().exec();
+		await redis.set("courses", JSON.stringify(courses));
+
+		const previewPath = path.join(
+			__dirname,
+			`../uploads/coursesImages/${course.previewImage}`
+		);
+		const webpImage = path.join(
+			__dirname,
+			`../uploads/coursesImages/${course.webpImg}`
+		);
+
+		let testPath = course.webpImage;
+
+		// Checking if file path is not a url
+		if (testPath && !testPath.startsWith("https")) {
+			const allFiles = [previewPath, webpImage];
+
+			for (let oneFile of allFiles) {
+				fs.unlink(oneFile, function (err) {
+					if (err) console.log(err);
+					console.log(`File delete: ${oneFile}`);
+				});
+			}
+		}
+
+		return res.status(OK).send(course);
+	} catch (err) {
+		console.log("Error", err);
+		return res.status(INTERNAL_SERVER_ERROR).send({ error: err.message });
+	}
+};
+module.exports = { getCoursesStatic, createCourses, getCourses, deleteCourse };

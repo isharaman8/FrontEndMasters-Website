@@ -1,5 +1,4 @@
-const { StatusCodes } = require("http-status-codes");
-const { INTERNAL_SERVER_ERROR } = StatusCodes;
+const { INTERNAL_SERVER_ERROR } = require("../utils/error_codes");
 const path = require("path");
 const getCourseImage = async (req, res) => {
 	try {

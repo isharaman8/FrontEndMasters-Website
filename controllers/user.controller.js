@@ -3,9 +3,11 @@ const jwt = require("jsonwebtoken");
 const redis = require("../config/redis");
 require("dotenv").config();
 
-const { StatusCodes } = require("http-status-codes");
-
-const { INTERNAL_SERVER_ERROR, OK, BAD_REQUEST } = StatusCodes;
+const {
+	INTERNAL_SERVER_ERROR,
+	OK,
+	BAD_REQUEST,
+} = require("../utils/error_codes");
 
 const generateToken = (user) => {
 	return jwt.sign(
@@ -21,9 +23,8 @@ const generateToken = (user) => {
 
 const getUsers = async (req, res) => {
 	try {
-		const users = await User.find({ roles: { $not: { $in: ["admin"] } } })
-			.lean()
-			.exec();
+		// { roles: { $not: { $in: ["admin"] } } }
+		const users = await User.find().lean().exec();
 		return res.status(OK).send(users);
 	} catch (err) {
 		console.log("Error", err);

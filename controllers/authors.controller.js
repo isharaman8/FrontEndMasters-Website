@@ -1,9 +1,7 @@
 const Author = require("../models/authors.test.model");
 const redis = require("../config/redis");
 
-const { StatusCodes } = require("http-status-codes");
-
-const { INTERNAL_SERVER_ERROR, OK } = StatusCodes;
+const { INTERNAL_SERVER_ERROR, OK } = require("../utils/error_codes");
 
 const getAuthorsStatic = async (req, res) => {
 	try {

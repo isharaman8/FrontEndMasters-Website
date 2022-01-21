@@ -1,9 +1,7 @@
 const Tweet = require("../models/tweets.model");
 
 // const tweets = require('../JSON/tweets.json');
-
-const { StatusCodes } = require("http-status-codes");
-const { OK, INTERNAL_SERVER_ERROR } = StatusCodes;
+const { OK } = require("../utils/error_codes");
 
 // GET /tweets
 //pagination for tweets

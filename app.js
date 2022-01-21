@@ -9,12 +9,9 @@ const coursesRouter = require("./routes/courses.router");
 const authorRouter = require("./routes/authors.test.route");
 const userRouter = require("./routes/user.test.router");
 const tweetsRouter = require("./routes/tweets.route");
-<<<<<<< HEAD
 const imageRouter = require("./routes/image.router");
-=======
 const teacherRouter = require("./routes/teachers.routes");
 const guideRouter = require("./routes/guides.routes");
->>>>>>> refs/remotes/origin/BACKEND_TESTING
 
 app.use(express.static("./public"));
 app.use(express.json());
@@ -34,7 +31,7 @@ app.use("/api/v1/users", userRouter);
 
 // Image Router
 app.use("/static/images/", imageRouter);
-// Teacher Router 
+// Teacher Router
 app.use("/api/v1/teacher", teacherRouter);
 
 // Guide Router

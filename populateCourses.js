@@ -1,6 +1,7 @@
 const courses = require("./public/JSON/courses");
 const connectDB = require("./config/connect");
 const Course = require("./models/courses.model");
+const redis = require("./config/redis");
 const Author = require("./models/authors.test.model");
 require("dotenv").config();
 
@@ -50,7 +51,11 @@ const populate = async (courses) => {
 	}
 
 	await Course.deleteMany();
-	await Course.create(courses);
+	let fetchCourses = await Course.create(courses);
+	fetchCourses.forEach(async (course) => {
+		await redis.set(`courses.${course._id}`, JSON.stringify(course));
+	});
+	await redis.set(`course`, JSON.stringify(fetchCourses));
 	process.exit(0);
 };
 
