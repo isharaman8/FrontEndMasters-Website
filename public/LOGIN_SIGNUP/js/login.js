@@ -6,7 +6,7 @@ document.querySelector("#footer").innerHTML = footer();
 
 const loginUser = async (event) => {
 	event.preventDefault();
-	const url = `https://masai-api-mocker.herokuapp.com/auth/login`;
+	const url = `http://localhost:3000/api/v1/users/login`;
 
 	let loginObj = {
 		password: document.querySelector("#password").value,
@@ -25,7 +25,8 @@ const loginUser = async (event) => {
 };
 
 function checkValidUser(data, loginObj) {
-	if (data.error == false) {
+	console.log(data);
+	if (data?.token !== undefined) {
 		alert("Login Successful");
 		localStorage.setItem("loginFrontEndData", JSON.stringify(loginObj));
 		window.location.href = "/index.html";
