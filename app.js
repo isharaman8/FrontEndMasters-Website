@@ -32,16 +32,13 @@ app.use("/api/v1/tweets", tweetsRouter);
 // User Router
 app.use("/api/v1/users", userRouter);
 
-<<<<<<< HEAD
 // Image Router
 app.use("/static/images/", imageRouter);
-=======
 // Teacher Router 
 app.use("/api/v1/teacher", teacherRouter);
 
 // Guide Router
 app.use("/api/v1/guide", guideRouter);
->>>>>>> refs/remotes/origin/BACKEND_TESTING
 
 app.listen(3000, async () => {
 	await connectDB(process.env.MONGO_URI_TEST);
