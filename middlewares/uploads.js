@@ -7,6 +7,10 @@ const storage = multer.diskStorage({
 			cb(null, path.join(__dirname, "../uploads/authorImages"));
 		} else if (req.body?.tweet) {
 			cb(null, path.join(__dirname, "../uploads/tweets"));
+		} else if (req.body?.teacher) {
+			cb(null, path.join(__dirname, "../uploads/teachers_pics"));
+		} else if (req.body?.guide) {
+			cb(null, path.join(__dirname, "../uploads/guides_pics"));
 		} else {
 			cb(null, path.join(__dirname, "../uploads/coursesImages"));
 		}
