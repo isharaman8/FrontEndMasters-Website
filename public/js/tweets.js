@@ -1,18 +1,4 @@
-
 let windowQuery = window.matchMedia("(max-width: 900px)");
-
-const tweetDates = [
-	"3:33am · Mar 1, 2019",
-	"3:57pm · Oct 11, 2020",
-	"5:51pm · Aug 29, 2020",
-	"5:44pm · Aug 27, 2020",
-	"11:43pm · Apr 28, 2020",
-];
-tweetsArray.forEach(
-	(tweet) =>
-		(tweet.publishedAt =
-			tweetDates[Math.floor(Math.random() * tweetDates.length)])
-);
 
 const appendTweets = (tweets, appendingDiv) => {
 	appendingDiv.innerHTML = "";
@@ -77,35 +63,9 @@ const setHiddenClass = (arr) => {
 	}
 };
 
-// DEFINING PARTICULAR NO. OF TWEETS
-let tweetsOne = tweetsArray.slice(0, 6);
-let tweetsTwo = tweetsArray.slice(6, 12);
-let tweetsThree = tweetsArray.slice(1, 7);
+async function getTweets(queries = "") {
+	let url = `http://127.0.0.1:3000/api/v1/tweets/test`;
 
-// DEFINING APPENDING DIVS
-let tweetDiv1 = document.getElementById("cell1");
-let tweetDiv2 = document.getElementById("cell2");
-let tweetDiv3 = document.getElementById("cell3");
-
-appendTweets(tweetsOne, tweetDiv1);
-appendTweets(tweetsTwo, tweetDiv2);
-appendTweets(tweetsThree, tweetDiv3);
-
-window.addEventListener("DOMContentLoaded", () => {
-	let pageOneTweets = document.querySelectorAll("#cell1 >.tweetMainDiv");
-	let pageTwoTweets = document.querySelectorAll("#cell2 >.tweetMainDiv");
-	let pageThreeTweets = document.querySelectorAll("#cell3 >.tweetMainDiv");
-
-	for (let i = 0; i < 4; i++) {
-		pageOneTweets[i].classList.add("hiddenClass");
-		pageTwoTweets[i].classList.add("hiddenClass");
-		pageThreeTweets[i].classList.add("hiddenClass");
-	}
-});
-
-
-async function getCourses(queries = "") {
-	let url = `http://127.0.0.1:3000/api/v1/tweets`;
 	if (queries) {
 		url = `${url}?${queries}`;
 	}
@@ -116,7 +76,34 @@ async function getCourses(queries = "") {
 }
 
 (async () => {
-	const tweets = await getCourses();
+	const tweetsOne = await getTweets("page=1");
+	const tweetsTwo = await getTweets("page=2");
+	const tweetsThree = await getTweets("page=1");
+	console.log(tweetsOne);
+
 	console.log(tweets);
+
+	// DEFINING APPENDING DIVS
+	let tweetDiv1 = document.getElementById("cell1");
+	let tweetDiv2 = document.getElementById("cell2");
+	let tweetDiv3 = document.getElementById("cell3");
+
+	appendTweets(tweetsOne, tweetDiv1);
+	appendTweets(tweetsTwo, tweetDiv2);
+	appendTweets(tweetsThree, tweetDiv3);
 	//appendTweets(courses.courses, allCourseDiv);
 })();
+
+window.addEventListener("DOMContentLoaded", () => {
+	let pageOneTweets = document.querySelectorAll("#cell1 >.tweetMainDiv");
+	let pageTwoTweets = document.querySelectorAll("#cell2 >.tweetMainDiv");
+	let pageThreeTweets = document.querySelectorAll("#cell3 >.tweetMainDiv");
+
+	console.log("pageOneTweets", pageOneTweets);
+
+	for (let i = 0; i < 4; i++) {
+		pageOneTweets[i].classList.add("hiddenClass");
+		pageTwoTweets[i].classList.add("hiddenClass");
+		pageThreeTweets[i].classList.add("hiddenClass");
+	}
+});

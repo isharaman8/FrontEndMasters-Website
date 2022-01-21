@@ -17,6 +17,8 @@ app.use("/api/v1/courses", coursesRouter);
 
 // Authors route;
 app.use("/api/v1/author", authorRouter);
+
+// Tweets Route
 app.use("/api/v1/tweets", tweetsRouter);
 
 // User Router

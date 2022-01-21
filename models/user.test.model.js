@@ -11,6 +11,10 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 		},
+		username: {
+			type: String,
+			required: true,
+		},
 		email: {
 			type: String,
 			required: true,
@@ -19,9 +23,16 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 		},
+		mobile: {
+			type: Number,
+			required: true,
+		},
 		course_purchased: {
 			type: String,
 			required: true,
+			enum: {
+				values: ["monthly", "yearly", "monthly_team", "yearly_team"],
+			},
 		},
 	},
 	{
@@ -35,7 +46,7 @@ userSchema.pre("save", function (next) {
 	return next();
 });
 
-userSchema.methods.comparePassword = function (password) {
+userSchema.methods.checkPassword = function (password) {
 	return bcrypt.compareSync(password, this.password);
 };
 

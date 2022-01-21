@@ -29,7 +29,7 @@ const plans = [
 			"MONTHLY TEAM",
 			"$195",
 			"Access for 10 people at your company, renewed monthly. Save 50% on our monthly plans!",
-			"monthly_t"
+			"monthly_team"
 		),
 	},
 	{
@@ -37,7 +37,7 @@ const plans = [
 			"YEARLY TEAM",
 			"$1950",
 			"Access for 10 people at your company, renewed yearly. Save 50% on our yearly plans!",
-			"yearly_t"
+			"yearly_team"
 		),
 	},
 ];

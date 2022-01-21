@@ -8,12 +8,29 @@ const { StatusCodes } = require("http-status-codes");
 const { INTERNAL_SERVER_ERROR, OK, BAD_REQUEST } = StatusCodes;
 
 const generateToken = (user) => {
-	return jwt.sign({ user }, process.env.SECRET_HASH);
+	return jwt.sign(
+		{
+			first_name: user.first_name,
+			last_name: user.last_name,
+			username: user.username,
+		},
+		process.env.SECRET_HASH
+	);
+};
+
+const getUsers = async (req, res) => {
+	try {
+		const users = await User.find().lean().exec();
+		return res.status(OK).send(users);
+	} catch (err) {
+		console.log("Error", err);
+		return res.status(INTERNAL_SERVER_ERROR).send({ message: err.message });
+	}
 };
 
 const registerUser = async (req, res) => {
 	try {
-		let user = await User.findOne(req.body.email).lean().exec();
+		let user = await User.findOne({ email: req.body.email }).exec();
 		if (user) {
 			return res
 				.status(BAD_REQUEST)
@@ -29,4 +46,43 @@ const registerUser = async (req, res) => {
 	}
 };
 
-module.exports = { registerUser };
+const loginUser = async (req, res) => {
+	try {
+		let user = await User.findOne({
+			$or: [{ email: req.body.email }, { username: req.body.username }],
+		}).exec();
+		if (!user) {
+			return res
+				.status(BAD_REQUEST)
+				.send({ message: `Email id or password incorrect` });
+		}
+
+		const match = user.checkPassword(req.body.password);
+		if (!match) {
+			return res
+				.status(BAD_REQUEST)
+				.send({ message: `Email id or password incorrect` });
+		}
+
+		const token = generateToken(user);
+		return res.status(OK).send({ user, token });
+	} catch (err) {
+		console.log("Error", err);
+		return res.status(OK).send({ error: err.message });
+	}
+};
+
+const deleteUser = async (req, res) => {
+	try {
+		const user = await User.findByIdAndDelete(req.params.id);
+		if (!user) {
+			return res.status(BAD_REQUEST).send({ message: `No user found` });
+		}
+		return res.status(OK).send(user);
+	} catch (err) {
+		console.log("Error", err);
+		return res.status(INTERNAL_SERVER_ERROR).send({ message: err.message });
+	}
+};
+
+module.exports = { registerUser, loginUser, deleteUser, getUsers };

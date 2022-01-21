@@ -55,14 +55,8 @@ async function registerUser(event) {
 
 	// FOR CHECKED PLAN
 
-	let name = `${document.querySelector("#firstName").value} ${
-		document.querySelector("#lastName").value
-	}`;
-	let description = [
-		document.querySelector("#cardNumber").value,
-		document.querySelector("#expiryDate").value,
-		document.querySelector("#cvc").value,
-	].join(",");
+	let firstName = document.querySelector("#firstName").value;
+	let lastName = document.querySelector("#lastName").value;
 
 	const plansNodes = document.querySelectorAll(`input[name="allPlans"]`);
 	let checkedPlan;
@@ -75,28 +69,31 @@ async function registerUser(event) {
 
 	let paymentMode = document.querySelector("#paymentsSelect").value;
 	const userObj = {
-		name: name,
+		first_name: firstName,
+		last_name: lastName,
 		email: document.querySelector("#email").value,
 		password: document.querySelector("#password").value,
 		username: document.querySelector("#username").value,
 		mobile: document.querySelector("#mobile").value,
-		description: description,
+		course_purchased: checkedPlan,
 	};
 
 	if (
 		!(
-			userObj.name &&
+			userObj.first_name &&
+			userObj.last_name &&
 			userObj.email &&
 			userObj.password &&
 			userObj.username &&
-			userObj.mobile
+			userObj.mobile &&
+			userObj.course_purchased
 		)
 	) {
 		alert("Missing Values");
 		return;
 	}
 
-	const url = `https://masai-api-mocker.herokuapp.com/auth/register`;
+	const url = `http://localhost:3000/api/v1/users/register`;
 
 	const api = await fetch(url, {
 		method: "POST",
@@ -106,28 +103,30 @@ async function registerUser(event) {
 		},
 	});
 	const data = await api.json();
-	checkValidUser(userObj, data, paymentMode, checkedPlan);
+	checkValidUser(data, paymentMode, userObj, checkedPlan);
 }
 
-function checkValidUser(userObj, data, paymentMode, checkedPlan) {
+function checkValidUser(data, paymentMode, userObj, checkedPlan) {
 	// Creating Plan Object
 	const planObj = {
 		monthly: "39",
 		yearly: "390",
-		monthly_t: "195",
-		yearly_t: "1950",
+		monthly_team: "195",
+		yearly_team: "1950",
 	};
-
-	if (data.error == false) {
+	console.log(data);
+	if (data?.token !== undefined) {
 		alert("Registration Successful");
-		const userPlan = [checkedPlan, planObj[checkedPlan]];
-		localStorage.setItem("frontEndUserPlan", JSON.stringify(userPlan));
-		localStorage.setItem("frontEndUser", JSON.stringify(userObj));
-		if (paymentMode === "cdCard") window.location.href = "cdCard.html";
-		else window.location.href = "payPal.html";
+		localStorage.setItem("userToken", data.token);
 	} else {
-		alert("User Already Exist");
+		alert("Registration failed");
+		return;
 	}
+	const userPlan = [checkedPlan, planObj[checkedPlan]];
+	localStorage.setItem("frontEndUserPlan", JSON.stringify(userPlan));
+	localStorage.setItem("frontEndUser", JSON.stringify(userObj));
+	if (paymentMode === "cdCard") window.location.href = "cdCard.html";
+	else window.location.href = "payPal.html";
 }
 
 // Defining css
