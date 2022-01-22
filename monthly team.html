@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #mainDiv{
+        height: 1900px;
+        width: auto;
+        background-color: rgb(34,34,34);
+    }
+    #firstDiv{
+        color: white;
+      text-align: center;
+      font-size: 45px;
+      font-weight: lighter;
+      margin-top: 40px;
+      
+    }
+    #secondDiv{
+        color: white;
+        font-size: 35px;
+        text-align: center;
+        margin-top: 40px;
+    }
+    #thirdDiv{
+        height: 110px;
+        margin-top: 40px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
+    #thirdDiv>div{
+        height: 70%;
+        width: 100px;
+    }
+    #thirdDiv>div>svg{
+        height: 100%;
+    }
+
+    #fourthDiv{
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        margin-top: 35px;
+    }
+    #container{
+        /* border: red 1px solid; */
+        margin-bottom: 20px;
+    }
+    #fifthDiv{
+        display: flex;
+        height: 190px;
+        /* border: red 1px solid; */
+        justify-content: center;
+    }
+    #fifthDiv>div{
+        height: 100%;
+        width: 20%;
+        margin-left: 10px;
+        /* border: 1px white solid; */
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .fifthDiv_first{
+        background-color: rgb(62,62,62);
+        height: 7%;
+    }
+.fifthDiv_second{
+    background-color: rgb(17,17,17);
+    height: 90%;}
+
+.fifthDiv_second_first{
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+    /* border: red solid 1px; */
+}
+.fifthDiv_second_first_first{
+width: 40%;
+/* border: 1px white solid; */
+height: 70%;
+font-weight: bold;
+margin-top: 5px; 
+color: white;
+font-size: 14px;
+justify-items: end;
+margin-left: 7px;
+}
+.fifthDiv_second_first_second{
+    width: 22%;
+    background-color: rgb(216,85,25);
+    margin-left: 30px;
+    border-radius: 5px;
+    margin-right: -10px;
+    
+/* border: 1px white solid; */
+height: 100%;
+color: white;
+font-size: 20px;
+justify-items: end; 
+}
+#monthly{
+    justify-content: center;
+    /* border: 1px red solid; */
+    width: 50%;
+    margin-left: 300px;
+    height: 720px;
+    /* text-align: center; */
+    margin-top: 30px;
+    background-color: rgb(17,17,17);
+}
+#heading{
+/* border: 1px white double; */
+font-size: 30px;
+font-weight: bold;
+margin-left: 20px;
+margin-top: 70px;
+margin-bottom: 20px;
+
+}
+#form{
+    /* border: 1px red double;  */
+    width: 90%;
+    margin-left: 33px;
+}
+#email{
+    width: 100%;
+
+}
+label{
+    font-size: 20px;
+}
+#first_last_name{
+    /* border: 1px solid red; */
+    height: 60px;
+    width: 101%;
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+input{
+    height: 38px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#name{
+    width: 270px;
+}
+#password>input{
+    width: 100%;
+}
+#select{
+    width: 100%;
+    height: 38px;
+    border-radius: 5px;
+}
+#password{
+    margin-bottom: 20px;
+}
+/* element.style {
+} */
+.StripeElement {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    padding: 8px 12px;
+    transition: box-shadow .15s ease;
+}
+.StripeElement {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    padding: 8px 12px;
+    transition: box-shadow .15s ease;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+style attribute {
+    cursor: default;
+}
+body {
+    background: #222;
+    color: #e6e6e6;
+    font-family: Open Sans,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+body {
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    margin: 0;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+/* element.style {
+} */
+.terms-of-service {
+    background: #222;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+body {
+    background: #222;
+    color: #e6e6e6;
+    font-family: Open Sans,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+body {
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    margin: 0;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+button{
+    background-color: rgb(192,45,40);
+    height: 70px;
+    border-radius: 50px;
+    width: 200px;
+    font-size: 20px;
+    color: white;
+}
+#emailDiv{
+    margin-bottom: 20px;
+}
+.terms-of-service{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#twitter{
+    /* border: 1px red solid; */
+    display: flex;
+    margin-top: 40px;
+    margin-left: 130px;
+}
+#twitter_1{
+    border: 1px white solid;
+    width: 45%;
+    height: 170px;
+    background-color: white;
+    margin-right: 20px;
+    border-radius: 10px;
+    /* margin-left: 10px; */
+}
+#twitter_2{
+    border: 1px white solid;
+    width: 45%;
+    height: 170px;
+    background-color: white;
+    border-radius: 10px;
+}
+#twitFirstDiv{
+/* border: 1px red solid; */
+display: flex;
+margin-left: 10px;
+margin-top: 10px;
+
+}
+#twitFirstDivFirst{
+    margin-right: 5px;
+    height: 52px;
+    width: 9%;
+/* border: 1px red solid; */
+border-radius: 10px;
+box-sizing: border-box;
+}
+#twitFirstDivSecond{
+    height: 70px;
+    width: 50%;
+    /* border: 1px red solid; */
+    color: black;
+    font-weight: bold;
+}
+#twitFirstDivThird{
+    height: 52px;
+    width: 9%;
+    margin-left: 100px;
+    /* border: 1px red solid; */
+}
+#twitSecondDiv{
+    color: black;
+    font-size: 20px;
+}
+
+</style>
+
+<body>
+    <div id="mainDiv">
+        <div id="container">
+    <div id="firstDiv">Master Modern JavaScript to Full Stack</div>
+    <div id="secondDiv">100+ Courses, Learning Paths & Mobile Apps for "On the Go" Learning</div>
+    <div id="thirdDiv">
+        <div>
+            <svg viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h630v630H0z" fill="#f7df1e"/><path d="M423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z"/></svg>
+        </div>
+        <div>
+            
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g fill="#61dafb"><circle cx="64" cy="47.5" r="9.3"/><path d="M64 81.7C71.3 88.8 78.5 93 84.3 93c1.9 0 3.7-.4 5.2-1.3 5.2-3 7.1-10.5 5.3-21.2-.3-1.9-.7-3.8-1.2-5.8 2-.6 3.8-1.2 5.6-1.8 10.1-3.9 15.7-9.3 15.7-15.2 0-6-5.6-11.4-15.7-15.2-1.8-.7-3.6-1.3-5.6-1.8.5-2 .9-3.9 1.2-5.8 1.7-10.9-.2-18.5-5.4-21.5-1.5-.9-3.3-1.3-5.2-1.3-5.7 0-13 4.2-20.3 11.3C56.7 6.3 49.5 2.1 43.7 2.1c-1.9 0-3.7.4-5.2 1.3-5.2 3-7.1 10.5-5.3 21.2.3 1.9.7 3.8 1.2 5.8-2 .6-3.8 1.2-5.6 1.8-10.1 3.9-15.7 9.3-15.7 15.2 0 6 5.6 11.4 15.7 15.2 1.8.7 3.6 1.3 5.6 1.8-.5 2-.9 3.9-1.2 5.8-1.7 10.7.2 18.3 5.3 21.2 1.5.9 3.3 1.3 5.2 1.3 5.8.2 13-4 20.3-11zm-5.6-13.5c1.8.1 3.7.1 5.6.1s3.8 0 5.6-.1c-1.8 2.4-3.7 4.6-5.6 6.7-1.9-2.1-3.8-4.3-5.6-6.7zM46 57.9c1 1.7 1.9 3.3 3 4.9-3.1-.4-6-.9-8.8-1.5.9-2.7 1.9-5.5 3.1-8.3.8 1.6 1.7 3.3 2.7 4.9zm-5.8-24.1c2.8-.6 5.7-1.1 8.8-1.5-1 1.6-2 3.2-3 4.9s-1.9 3.3-2.7 5c-1.3-2.9-2.3-5.7-3.1-8.4zm5.5 13.7c1.3-2.7 2.7-5.4 4.3-8.1 1.5-2.6 3.2-5.2 4.9-7.8 3-.2 6-.3 9.1-.3 3.2 0 6.2.1 9.1.3 1.8 2.6 3.4 5.2 4.9 7.8 1.6 2.7 3 5.4 4.3 8.1-1.3 2.7-2.7 5.4-4.3 8.1-1.5 2.6-3.2 5.2-4.9 7.8-3 .2-6 .3-9.1.3-3.2 0-6.2-.1-9.1-.3-1.8-2.6-3.4-5.2-4.9-7.8-1.6-2.7-3-5.4-4.3-8.1zm39.1-5.4-2.7-5c-1-1.7-1.9-3.3-3-4.9 3.1.4 6 .9 8.8 1.5-.9 2.8-1.9 5.6-3.1 8.4zm0 10.8c1.2 2.8 2.2 5.6 3.1 8.3-2.8.6-5.7 1.1-8.8 1.5 1-1.6 2-3.2 3-4.9.9-1.5 1.8-3.2 2.7-4.9zm2.3 34.7c-.8.5-1.8.7-2.9.7-4.9 0-11-4-17-10 2.9-3.1 5.7-6.6 8.5-10.5 4.7-.4 9.2-1.1 13.4-2.1.5 1.8.8 3.6 1.1 5.4 1.4 8.5.3 14.6-3.1 16.5zm5.2-52.7c11.2 3.2 17.9 8.1 17.9 12.6 0 3.9-4.6 7.8-12.7 10.9-1.6.6-3.4 1.2-5.2 1.7-1.3-4.1-2.9-8.3-4.9-12.6 2-4.3 3.7-8.5 4.9-12.6zm-8-28.2c1.1 0 2 .2 2.9.7 3.3 1.9 4.5 7.9 3.1 16.5-.3 1.7-.7 3.5-1.1 5.4-4.2-.9-8.7-1.6-13.4-2.1-2.7-3.9-5.6-7.4-8.5-10.5 6-5.9 12.1-10 17-10zM69.6 26.8c-1.8-.1-3.7-.1-5.6-.1s-3.8 0-5.6.1c1.8-2.4 3.7-4.6 5.6-6.7 1.9 2.1 3.8 4.4 5.6 6.7zM40.9 7.4c.8-.5 1.8-.7 2.9-.7 4.9 0 11 4 17 10-2.9 3.1-5.7 6.6-8.5 10.5-4.7.4-9.2 1.1-13.4 2.1-.5-1.8-.8-3.6-1.1-5.4-1.4-8.5-.3-14.5 3.1-16.5zm-5.2 52.7C24.5 56.9 17.8 52 17.8 47.5c0-3.9 4.6-7.8 12.7-10.9 1.6-.6 3.4-1.2 5.2-1.7 1.3 4.1 2.9 8.3 4.9 12.6-2 4.3-3.7 8.6-4.9 12.6zm2.1 11c.3-1.7.7-3.5 1.1-5.4 4.2.9 8.7 1.6 13.4 2.1 2.7 3.9 5.6 7.4 8.5 10.5-6 5.9-12.1 10-17 10-1.1 0-2-.2-2.9-.7-3.4-1.9-4.5-8-3.1-16.5zm-4.2 41.2c2.2-2.7 2.3-5.7 1.1-8.7s-3.7-4.4-6.8-4.5c-3.7-.1-7.5 0-11.2 0H16V125h3v-9.8h4.7c.6 0 1.1.2 1.4.7l6 9.3c.1.2.4.5.6.5h3.9c-2.4-3.7-4.7-7.2-7.1-10.8 2.1-.3 3.9-1 5.1-2.6zm-14.6-.2v-9.9h1.1c2.3 0 4.7-.1 7 .1 2.7.1 4.6 2.2 4.6 4.9s-2.2 4.8-4.9 4.9c-2.4.1-4.8 0-7.8 0zm38.7 1.3c-1.6-7-8-8.8-12.9-6.6-3.8 1.7-5.5 5-5.6 9.1-.1 3.1.8 5.9 3.2 8 2.7 2.4 6 2.7 9.4 2.1 1.9-.4 3.6-1.3 4.9-2.7-.5-.7-1-1.4-1.5-2-2.8 2.4-5.9 3.2-9.3 1.6-2.2-1.1-3.3-3.8-3.5-5.8h15.5v-1.3c.1-.9 0-1.7-.2-2.4zM42.6 115c-.3-3 2.7-6.2 6-6.2 3.8-.1 6.2 2.2 6.3 6.2zm30.7-8.7c-1.5-.3-3.1-.4-4.6-.3-2.4.2-4.5 1.3-6.2 3.1.5.7.9 1.4 1.5 2.2.2-.2.4-.4.6-.5 1.6-1.5 3.5-2.3 5.8-2.1 1.8.1 3.5.7 4 2.5.4 1.4.3 2.9.4 4.4-.3 0-.4-.1-.5-.2-2.4-2-5.1-2.4-8-1.7-2.7.7-4.4 2.8-4.6 5.5-.2 3.1 1.2 5.4 3.9 6.5 1.7.7 3.6.7 5.4.3 1.4-.3 2-1.1 4-2.2v1.3h2.8c0-4 .1-8.9 0-13.5 0-2.9-1.7-4.7-4.5-5.3zm1.4 12.6c-.1.3 0 .6 0 .9 0 2.1-.5 2.8-2.5 3.6-1.4.5-2.9.7-4.4.2-1.7-.5-2.9-2-2.9-3.7-.1-1.7 1-3.4 2.7-3.9 2.3-.8 4.4-.3 6.3 1.1.6.5 1 1 .8 1.8zm15.6-9.9c2.6-.8 5-.3 6.8 1.9l.3.2c.7-.6 1.3-1.2 2.1-1.9-.3-.3-.4-.5-.6-.8-2.9-3.1-8.6-3.5-12.1-1-4.9 3.6-4.8 10.6-2.4 14.3 2.3 3.5 5.6 4.7 9.5 4.2 2.3-.3 4.2-1.4 5.7-3.3-.7-.6-1.4-1.2-2.1-1.9-.2.2-.3.3-.4.5-2.7 3-7.2 2.7-9.6-.5-1.4-1.9-1.7-4.1-1.3-6.3.2-2.5 1.5-4.5 4.1-5.4zm20.8 13.6c-.2.1-.3.2-.3.2-.8.6-1.6.7-2.5.4-.9-.4-1-1.2-1.1-2v-11.4c0-.2 0 .2.1-.8h3.8v-3h-4v-5h-3v5.4h-2.6c-.2 0-.5.2-.5.4-.1.7 0 1.2 0 2.2h3.2v12.8c0 1.6.4 3 1.8 3.8 1.5.9 4.4.7 5.7-.4.2-.1.3-.5.3-.6-.3-.6-.6-1.3-.9-2z"/></g></svg>
+        </div>
+        <div>
+            
+<svg fill="none" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><rect width="512" height="512" rx="50" fill="#3178c6"/><path d="M317 407v50c8.1 4.2 18 7.3 29 9.4s23 3.1 35 3.1 23-1.1 34-3.4 20-6.1 28-11c8.1-5.3 15-12 19-21s7.1-19 7.1-32c0-9.1-1.4-17-4.1-24s-6.6-13-12-18c-5.1-5.3-11-10-18-14s-15-8.2-24-12c-6.6-2.7-12-5.3-18-7.9-5.2-2.6-9.7-5.2-13-7.8-3.7-2.7-6.5-5.5-8.5-8.4-2-3-3-6.3-3-10 0-3.4.89-6.5 2.7-9.3s4.3-5.1 7.5-7.1 7.2-3.5 12-4.6c4.7-1.1 9.9-1.6 16-1.6 4.2 0 8.6.31 13 .94 4.6.63 9.3 1.6 14 2.9 4.7 1.3 9.3 2.9 14 4.9 4.4 2 8.5 4.3 12 6.9v-47c-7.6-2.9-16-5.1-25-6.5s-19-2.1-31-2.1-23 1.3-34 3.8-20 6.5-28 12c-8.1 5.4-14 12-19 21-4.7 8.4-7 18-7 30 0 15 4.3 28 13 38 8.6 11 22 19 39 27 6.9 2.8 13 5.6 19 8.3s11 5.5 15 8.4c4.3 2.9 7.7 6.1 10 9.5 2.5 3.4 3.8 7.4 3.8 12 0 3.2-.78 6.2-2.3 9s-3.9 5.2-7.1 7.2-7.1 3.6-12 4.8c-4.7 1.1-10 1.7-17 1.7-11 0-22-1.9-32-5.7-11-3.8-21-9.5-30-17zm-84-123h64v-41H118v41h64v183h51z" clip-rule="evenodd" fill="#fff" fill-rule="evenodd" style="fill:#fff"/></svg>
+        </div>
+        <div>
+            
+<svg fill="none" viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><path d="m0 8.934 49.854.158 14.167 24.47 14.432-24.47L128 8.935l-63.834 110.14zm126.98.637-24.36.02-38.476 66.053L25.691 9.592.942 9.572l63.211 107.89zm-25.149-.008-22.745.168-15.053 24.647L49.216 9.73l-22.794-.168 37.731 64.476zm-75.834-.17 23.002.009m-23.002-.01 23.002.01" fill="none"/><path d="m25.997 9.393 23.002.009L64.035 34.36 79.018 9.404 102 9.398 64.15 75.053z" fill="#35495e"/><path d="m.91 9.569 25.067-.172 38.15 65.659L101.98 9.401l25.11.026-62.966 108.06z" fill="#41b883"/></svg>
+        </div>
+        <div>
+            
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M63.81 1.026 4.553 21.88l9.363 77.637 49.957 27.457 50.214-27.828 9.36-77.635z" fill="#b3b3b3"/><path d="M117.536 25.998 63.672 7.629v112.785l45.141-24.983z" fill="#a6120d"/><path d="m11.201 26.329 8.026 69.434 44.444 24.651V7.627z" fill="#dd1b16"/><path d="m78.499 67.67-14.827 6.934H48.044l-7.347 18.374-13.663.254 36.638-81.508zm-1.434-3.491L63.77 37.858 52.864 63.726h10.807z" fill="#f2f2f2"/><path d="m63.671 11.724.098 26.134 12.375 25.888H63.698l-.027 10.841 17.209.017 8.042 18.63 13.074.242z" fill="#b3b3b3"/></svg>
+        </div>
+        <div>
+            
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M114.325 80.749c-.29 0-.578-.076-.832-.224l-2.65-1.568c-.396-.221-.203-.3-.072-.345.528-.184.635-.227 1.198-.545.059-.033.136-.021.197.015l2.035 1.209a.261.261 0 0 0 .246 0l7.937-4.581a.248.248 0 0 0 .122-.215v-9.16a.256.256 0 0 0-.123-.219l-7.934-4.577a.254.254 0 0 0-.245 0l-7.933 4.578a.259.259 0 0 0-.125.218v9.16c0 .088.049.171.125.212l2.174 1.257c1.18.589 1.903-.105 1.903-.803v-9.045c0-.127.103-.228.23-.228h1.007c.125 0 .229.101.229.228v9.045c0 1.574-.857 2.477-2.35 2.477-.459 0-.82 0-1.828-.496l-2.081-1.198a1.676 1.676 0 0 1-.832-1.448v-9.16c0-.595.317-1.15.832-1.446l7.937-4.587a1.743 1.743 0 0 1 1.667 0l7.937 4.587c.514.297.833.852.833 1.446v9.16a1.68 1.68 0 0 1-.833 1.448l-7.937 4.582a1.651 1.651 0 0 1-.834.223m2.453-6.311c-3.475 0-4.202-1.595-4.202-2.932a.23.23 0 0 1 .23-.229h1.026a.23.23 0 0 1 .228.194c.154 1.045.617 1.572 2.718 1.572 1.671 0 2.383-.378 2.383-1.266 0-.512-.202-.891-2.8-1.146-2.172-.215-3.515-.694-3.515-2.433 0-1.601 1.35-2.557 3.612-2.557 2.543 0 3.801.883 3.96 2.777a.235.235 0 0 1-.06.176.236.236 0 0 1-.168.073h-1.031a.228.228 0 0 1-.223-.179c-.248-1.1-.848-1.451-2.479-1.451-1.825 0-2.037.637-2.037 1.112 0 .577.25.745 2.715 1.071 2.439.323 3.598.779 3.598 2.494.001 1.733-1.441 2.724-3.955 2.724M97.982 68.43c.313-.183.506-.517.506-.88v-2.354c0-.362-.192-.696-.506-.879l-8.364-4.856a1.017 1.017 0 0 0-1.019-.002l-8.416 4.859a1.018 1.018 0 0 0-.508.88v9.716c0 .365.196.703.514.884l8.363 4.765c.308.177.686.178.997.006l5.058-2.812a.508.508 0 0 0 .006-.885l-8.468-4.86a.507.507 0 0 1-.256-.44v-3.046c0-.182.097-.349.254-.439l2.637-1.52a.505.505 0 0 1 .507 0l2.637 1.52a.507.507 0 0 1 .255.439v2.396a.507.507 0 0 0 .764.44zm-8.998-.456a.2.2 0 0 1 .195 0l1.615.933c.06.035.097.1.097.169v1.865c0 .07-.037.134-.097.169l-1.615.932a.194.194 0 0 1-.195 0l-1.614-.932a.194.194 0 0 1-.098-.169v-1.865c0-.069.037-.134.098-.169zm-21.901 3.88c0 .09-.048.174-.127.22l-2.89 1.666a.251.251 0 0 1-.254 0l-2.89-1.666a.255.255 0 0 1-.127-.22v-3.338c0-.09.049-.175.127-.221l2.89-1.668a.248.248 0 0 1 .255 0l2.891 1.668a.258.258 0 0 1 .126.221v3.338zm.781-24.716a.511.511 0 0 0-.756.444v12.915a.359.359 0 0 1-.177.308.359.359 0 0 1-.356 0l-2.108-1.215a1.017 1.017 0 0 0-1.015 0l-8.418 4.858a1.018 1.018 0 0 0-.509.881v9.719c0 .363.194.698.508.881l8.418 4.861c.314.182.702.182 1.017 0l8.42-4.861a1.02 1.02 0 0 0 .508-.881V50.821c0-.368-.2-.708-.521-.888zM38.238 59.407a1.014 1.014 0 0 1 1.016 0l8.418 4.857c.314.182.508.518.508.881v9.722c0 .363-.194.699-.508.881l-8.417 4.861a1.02 1.02 0 0 1-1.017 0l-8.415-4.861a1.02 1.02 0 0 1-.508-.881v-9.723c0-.362.194-.698.508-.88zM22.93 65.064c0-.366-.192-.702-.508-.883l-8.415-4.843a.99.99 0 0 0-.464-.133h-.087a.993.993 0 0 0-.464.133l-8.416 4.843a1.02 1.02 0 0 0-.509.883l.018 13.04c0 .182.095.351.254.439a.487.487 0 0 0 .505 0l5-2.864c.316-.188.509-.519.509-.882v-6.092c0-.364.192-.699.507-.881l2.13-1.226a.994.994 0 0 1 .508-.137c.174 0 .352.044.507.137l2.128 1.226c.315.182.509.517.509.881v6.092c0 .363.195.696.509.882l5 2.864a.508.508 0 0 0 .76-.439z" fill="#83cd29"/></svg>
+        </div>
+        <div>
+            
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g fill="#1572b6"><path d="m19.67 26 8.069 90.493 36.206 10.05 36.307-10.063L108.33 26zm69.21 50.488L86.53 98.38l.009 1.875L64 106.55v.001l-.018.015-22.719-6.225L39.726 83h11.141l.79 8.766 12.347 3.295-.004.015v-.032l12.394-3.495L77.702 77H51.795l-.222-2.355-.506-5.647L50.802 66h27.886l1.014-11H37.229l-.223-2.589-.506-6.03L36.235 43h55.597l-.267 3.334zM89 14.374 81.851 6H89V1H73v4.363L81.39 13H73v5h16zm-19 0L63.193 6H70V1H55v4.363L62.733 13H55v5h15zM52 13h-8V6h8V1H38v17h14z"/></g></svg>
+        </div>
+        <div>
+            
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="a"><stop offset="0" stop-color="#f9a03c"/><stop offset="1" stop-color="#f7974e"/></linearGradient><linearGradient id="b" gradientTransform="matrix(82.4907 0 0 -81.4303 16634.416 30700.326)" gradientUnits="userSpaceOnUse" x1="-201.009" x2="-200.098" xlink:href="#a" y1="376.844" y2="375.873"/><linearGradient id="c" gradientTransform="matrix(40.2105 0 0 -40.4122 8003.203 15127)" gradientUnits="userSpaceOnUse" x1="-199.257" x2="-197.514" xlink:href="#a" y1="373.615" y2="371.916"/><linearGradient id="d" gradientTransform="matrix(41.0403 0 0 -39.9333 8224.5 14997.683)" gradientUnits="userSpaceOnUse" x1="-199.836" x2="-198.286" xlink:href="#a" y1="374.252" y2="372.475"/><linearGradient id="e" gradientTransform="matrix(255.8347 0 0 -242.016 51476.605 91789.102)" gradientUnits="userSpaceOnUse" x1="-201.143" x2="-200.795" y1="379.263" y2="378.804"><stop offset="0" stop-color="#f26d58"/><stop offset="1" stop-color="#f9a03c"/></linearGradient><linearGradient id="f" gradientTransform="matrix(160.7307 0 0 -174.8133 32360.78 66184.883)" gradientUnits="userSpaceOnUse" x1="-200.962" x2="-200.452" y1="378.553" y2="378.218"><stop offset="0" stop-color="#b84e51"/><stop offset="1" stop-color="#f68e48"/></linearGradient><linearGradient id="g" gradientTransform="matrix(176.7653 0 0 -92.6293 35504.598 35022.56)" gradientUnits="userSpaceOnUse" x1="-200.619" x2="-200.595" xlink:href="#a" y1="377.137" y2="376.532"/><path d="M126.334 90.59a37.18 37.18 0 0 0 .128-1.647C126.5 88.288 87.094 50.9 87.094 50.9h-.942s39.94 42.13 40.182 39.69z" fill="url(#b)"/><path d="M42.26 77.62a26.282 26.282 0 0 1-.328.702c-1.256 2.62 17.585 21.038 19.1 18.8.07-.098.14-.202.208-.3.077-.118.152-.23.228-.348 1.213-1.84-18.67-20.05-19.207-18.854z" fill="url(#c)"/><path d="M68.886 103.52c-.053.118-.433.76-.78 1.098-.058.117 18.394 18.417 18.394 18.417h1.66c.002 0-17.32-18.74-19.274-19.514z" fill="url(#d)"/><path d="M126.488 88.61c-.863 19.13-16.69 34.425-36.024 34.425H87.85l-19.31-19.022a69.313 69.313 0 0 0 4.38-6.98h17.544c5.55 0 10.064-4.514 10.064-10.065 0-5.55-4.515-10.064-10.064-10.064H80.082A69.373 69.373 0 0 0 81.306 64c0-4.48-.44-8.852-1.26-13.1h6.45l39.88 39.295a48.62 48.62 0 0 0 .112-1.585zM11.962 4.772H1.472v26.003h10.49c18.32 0 33.23 14.903 33.23 33.225 0 4.984-1.113 9.716-3.088 13.964L61.24 96.82A58.882 58.882 0 0 0 71.2 64c0-32.658-26.574-59.228-59.236-59.228z" fill="url(#e)"/><path d="M90.464 4.772H47.986a69.81 69.81 0 0 1 24.82 26.003h17.658c5.55 0 10.064 4.513 10.064 10.064 0 5.55-4.515 10.06-10.064 10.06h-3.968l39.88 39.296a36.65 36.65 0 0 0 .152-3.228c0-8.766-3.146-16.807-8.368-23.066 5.223-6.256 8.368-14.3 8.368-23.063 0-19.887-16.177-36.068-36.064-36.068z" fill="url(#f)"/><path d="M87.85 123.035H48.29a69.95 69.95 0 0 0 20.25-19.022zM61.24 96.82 42.106 77.965c-5.287 11.362-16.807 19.264-30.143 19.264H1.472v26h10.49c20.53 0 38.648-10.5 49.28-26.407z" fill="url(#g)"/></svg>
+        </div>
+        <div>
+            
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M117.29 98.1 66.24 127v-22.51L98 87zm3.5-3.16V34.55l-18.68 10.8v38.81l18.67 10.77zM10.71 98.1l51 28.88v-22.49L29.94 87zm-3.5-3.16V34.55l18.68 10.8v38.81zm2.19-64.3L61.76 1v21.76L28.21 41.21l-.27.15zm109.18 0L66.24 1v21.76L99.79 41.2l.27.15 18.54-10.71z" fill="#8ed6fb"/><path d="M61.76 99.37 30.37 82.1V47.92L61.76 66zm4.48 0 31.39-17.25v-34.2L66.24 66zM32.5 44 64 26.66 95.5 44 64 62.16z" fill="#1c78c0"/></svg>
+        </div>
+    </div>
+    <div id="fourthDiv">If you already have an account, please<a href="login.html" style="color: rgb(215,78,51);">login</a></div>
+    </div>
+    <div id="fifthDiv">
+        
+        <div>
+            <a href="monthly.html"style="text-decoration: none;">
+            <div class="fifthDiv_first"  ></div>
+            <div class="fifthDiv_second" >
+                <div class="fifthDiv_second_first">
+                    <div class="fifthDiv_second_first_first">MONTHLY</div>
+                    <div class="fifthDiv_second_first_second">$39</div>
+                </div>
+                <h3 style="color: white;">Access all premium courses, workshops, and mobile apps. Renewed monthly.</h3>
+            </div>
+        </a>
+        </div>
+
+        <div>
+            <a href="yearly.html"style="text-decoration: none;">
+            <div class="fifthDiv_first" ></div>
+            <div class="fifthDiv_second" >
+                <div class="fifthDiv_second_first">
+                    <div class="fifthDiv_second_first_first">YEARLY</div>
+                    <div class="fifthDiv_second_first_second">$390</div>
+                </div>
+                <h3 style="color: white;">Access everything. Renewed yearly. Save $78 per year!</h3>
+            </div>
+        </a>
+        </div>
+
+        <div>
+            <a href="monthly team.html"style="text-decoration: none;">
+            <div class="fifthDiv_first" style="background-color: rgb(192,45,40);"></div>
+            <div class="fifthDiv_second" style="background-color: rgb(144,34,30);">
+                <div class="fifthDiv_second_first">
+                    <div class="fifthDiv_second_first_first">MONTHLY TEAM</div>
+                    <div class="fifthDiv_second_first_second">$195</div>
+                </div>
+                <h3 style="color: white;">Access for 10 people at your company, renewed monthly. Save 50% on our monthly plans!
+                </h3>
+            </div>
+        </a>
+        </div>
+
+        <div>
+            <a href="yearly team.html" style="text-decoration: none;">
+            <div class="fifthDiv_first"></div>
+            <div class="fifthDiv_second">
+                <div class="fifthDiv_second_first">
+                    <div class="fifthDiv_second_first_first">YEARLY TEAM</div>
+                    <div class="fifthDiv_second_first_second">$1950</div>
+                </div>
+                <h3 style="color: white;">Access for 10 people at your company, renewed yearly. Save 50% on our yearly plans!
+                </h3>
+            </div>
+        </a>
+        </div>
+
+       
+    </div>
+    <div id="monthly">
+        <div style="color: white;" id="heading">Register for a Monthly Team Account</div>
+        <div id="form">
+            <div>
+                <form style="color: white;">
+                    <div id="emailDiv">
+                        <label for="">Email (you'll need to confirm this email address)</label><br>
+                        <input type="text" id="email">
+                    </div>
+                   
+                    <div id="first_last_name">
+                        <div id="first_name">
+                            <label for="">First Name</label><br>
+                            <input type="text" id="name">
+
+                        </div>
+                        <div id="last_name">
+                            <label for="">
+                                Last Name</label><br>
+                            <input type="text" id="name">
+                        </div>
+
+                    </div>
+                    <div id="password">
+                        <label for="">Password</label><br>
+                        <input type="text">
+                    </div>
+                    <div id="password">
+                        <label for="">Password Again</label><br>
+                        <input type="text">
+                    </div>
+                    <div id="password">
+                        <label for="">Choose Your Payment Method</label><br>
+                        <select name="" id="select">Credit/Debit Card
+                            <option value="">Credit/Debit Card</option>
+                            <option value="">Paypal</option>
+                        </select>
+                    
+                    </div>
+                    <div class="card-element StripeElement StripeElement--empty form-validated" id="card-element"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;"><iframe name="__privateStripeFrame4695" frameborder="0" allowtransparency="true" scrolling="no" allow="payment *" src="https://js.stripe.com/v3/elements-inner-card-00cc3a674f9bc3edfd15f3c4881e3b61.html#wait=false&amp;mids[guid]=NA&amp;mids[muid]=NA&amp;mids[sid]=NA&amp;style[base][fontSize]=15px&amp;rtl=false&amp;componentName=card&amp;keyMode=unknown&amp;apiKey=pk_7Hy691kRR58XyJa5ipiSfBnm33KWB&amp;referrer=https%3A%2F%2Ffrontendmasters.com%2Fjoin%2F&amp;controllerId=__privateStripeController4691" title="Secure card payment input frame" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translate(0px) !important; height: 18px;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: -1px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
+                <div>
+                    <div class="terms-of-service">
+                        By clicking Start Learning, you agree to our <a style="color: brown;" target="_blank" href="https://static.frontendmasters.com/assets/legal/MasterServicesAgreement.pdf">Terms
+                        of Service</a> and <a style="color: brown;" target="_blank" href="https://static.frontendmasters.com/assets/legal/PrivacyPolicy.pdf">Privacy Policy</a>.
+                      </div>
+                </div>
+                <div>
+                    <button>Start Learning</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="twitter">
+
+<div id="twitter_1">
+   <div id="twitFirstDiv">
+       <div id="twitFirstDivFirst">
+        <img src="https://pbs.twimg.com/profile_images/1388480669903466496/qBizVmo3_reasonably_small.jpg" height="49" width="49">
+       </div>
+       <div id="twitFirstDivSecond"><div class="tweet-name">Anthony R. 🇫🇷🚀💻</div><div style="color: gray;">@AnthonyHexium</div></div>
+       <div id="twitFirstDivThird"><img style="height: 50px; width: 50px;" src="data:image/png;base64,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" alt=""></div>
+   </div>
+   <div id="twitSecondDiv"><span style="color: skyblue;">@catalinmpit @FrontendMasters </span> This is the best investment I made in my career. I mean, by faaaaaaaar.</div>
+   <div id="twitThirdDiv"></div>
+</div>
+
+<div id="twitter_2">
+    <div id="twitFirstDiv">
+        <div id="twitFirstDivFirst">
+         <img src="https://pbs.twimg.com/profile_images/1348388087127101440/BRmGhQMk_reasonably_small.jpg" height="49" width="49">
+        </div>
+        <div id="twitFirstDivSecond"><div class="tweet-name">j.</div><div style="color: gray;">@jsilvax</div></div>
+        <div id="twitFirstDivThird"><img style="height: 50px; width: 50px;" src="data:image/png;base64,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" alt=""></div>
+    </div>
+    <div id="twitSecondDiv"><span style="color: skyblue;">@catalinmpit @FrontendMasters </span> This is the best investment I made in my career. I mean, by faaaaaaaar.</div>
+    <div id="twitThirdDiv"></div>
+</div>
+    </div>
+    <p style="text-align: center;color: white;font-size: 30px;">Questions on your account?</p>
+    <p style="text-align: center;color: white;font-size: 30px;">
+        Ask us anything! 😀 <a href="mailto:support@frontendmasters.com" style="color: brown;">support@frontendmasters.com</a>
+      </p>
+</div>
+</body>
+</html>
