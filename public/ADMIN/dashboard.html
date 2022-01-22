@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/dashboard.css" />
+		<title>Admin Dashboard</title>
+	</head>
+	<body>
+		<h1>Admin Dashboard</h1>
+		<div id="topButton">
+			<button id="logout">Logout</button>
+			<button id="addCourse">Add Course</button>
+		</div>
+
+		<div id="allCourses">
+			<table id="courseTable">
+				<thead>
+					<th>Course Name</th>
+					<th>Author</th>
+					<th>Published At</th>
+					<th>Popular</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</thead>
+				<tbody></tbody>
+			</table>
+			<span id="changePage">
+				<button id="prev">Previous Page</button>
+				<button id="next">Next Page</button>
+			</span>
+		</div>
+	</body>
+</html>
+<script src="js/dashboard.js"></script>

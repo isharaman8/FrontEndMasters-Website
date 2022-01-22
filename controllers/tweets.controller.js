@@ -28,8 +28,8 @@ const getTweets = async (req, res, next) => {
 //Post /tweets
 const postTweet = async (req, res, next) => {
 	try {
-		let img = req.files.img[0].path;
-		let tweetLogo = req.files.tweetLogo[0].path;
+		let img = req.files.img[0].filename;
+		let tweetLogo = req.files.tweetLogo[0].filename;
 		let tweet = new Tweet(req.body);
 		tweet.img = img;
 		tweet.tweetLogo = tweetLogo;

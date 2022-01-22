@@ -27,15 +27,14 @@ const userSchema = new Schema(
 			type: Number,
 			required: true,
 		},
-		roles: [
-			{
-				type: String,
-				enum: {
-					values: ["admin", "user"],
-				},
-				default: "user",
+		role: {
+			type: String,
+			enum: {
+				values: ["admin", "user"],
 			},
-		],
+			default: "user",
+		},
+
 		course_purchased: {
 			type: String,
 			required: false,

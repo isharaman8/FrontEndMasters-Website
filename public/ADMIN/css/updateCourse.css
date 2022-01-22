@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body,
+html {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	color: rgb(29, 29, 29);
+}
+#updateForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin: auto;
+	width: 400px;
+	margin-top: 30px;
+	gap: 10px;
+	background-color: wheat;
+	padding: 20px 25px;
+	border-radius: 20px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-bottom: 20px;
+}
+
+#updateForm > label {
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 5px 0;
+}
+textarea {
+	border-radius: 10px;
+	padding: 5px;
+	border: 1px solid rgb(224, 224, 224);
+}
+#updateForm > label > input,
+#updateForm > label > select {
+	border-radius: 10px;
+	padding: 5px;
+	border: 1px solid rgb(224, 224, 224);
+}
+
+input[type="submit"] {
+	padding: 7px 20px;
+	font-size: 13px;
+	background-color: tomato;
+	border-radius: 10px;
+	color: white;
+	font-weight: 600;
+}

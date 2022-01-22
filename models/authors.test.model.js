@@ -12,7 +12,7 @@ const authorSchema = new mongoose.Schema(
 		},
 		authorImg: {
 			type: String,
-			required: false,
+			required: true,
 		},
 	},
 	{

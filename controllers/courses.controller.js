@@ -11,15 +11,23 @@ const {
 
 const getCoursesStatic = async (req, res) => {
 	try {
-		let courses = await redis.get("courses");
-		if (courses) return res.status(OK).send(JSON.parse(courses));
-		else {
-			courses = await Course.find().lean().exec();
-			if (courses.length !== 0) {
-				await redis.set(`courses`, JSON.stringify(courses));
-				return res.status(OK).send(courses);
-			} else return res.status(OK).send(courses);
-		}
+		const page = req.query.page || 1;
+		const size = req.query.size || 10;
+
+		const offset = (page - 1) * size;
+		// let courses = await redis.get("courses");
+		// if (courses) return res.status(OK).send(JSON.parse(courses));
+		// else {
+		let courses = await Course.find()
+			.skip(offset)
+			.limit(size)
+			.populate("author")
+			.lean()
+			.exec();
+		if (courses.length !== 0) {
+			return res.status(OK).send(courses);
+		} else return res.status(OK).send(courses);
+		// }
 	} catch (err) {
 		console.log("Error", err);
 		return res.status(INTERNAL_SERVER_ERROR).send({ err: err.messgage });
@@ -40,15 +48,15 @@ const getCourses = async (req, res) => {
 		let courses;
 		// Author Query
 		if (author) {
-			courses = await redis.get(`courses.authors.${author}`);
-			if (courses) {
-				let parsedCourses = JSON.parse(courses);
-				return res.status(OK).send({
-					courses: parsedCourses,
-					nbHits: parsedCourses.length,
-					redis: true,
-				});
-			}
+			// courses = await redis.get(`courses.authors.${author}`);
+			// if (courses) {
+			// 	let parsedCourses = JSON.parse(courses);
+			// 	return res.status(OK).send({
+			// 		courses: parsedCourses,
+			// 		nbHits: parsedCourses.length,
+			// 		redis: true,
+			// 	});
+			// }
 
 			courses = await Course.aggregate([
 				{
@@ -65,7 +73,7 @@ const getCourses = async (req, res) => {
 					},
 				},
 			]).exec();
-			await redis.set(`courses.authors.${author}`, JSON.stringify(courses));
+			// await redis.set(`courses.authors.${author}`, JSON.stringify(courses));
 			return res.status(OK).send({
 				courses,
 				nbHits: courses.length,
@@ -77,23 +85,23 @@ const getCourses = async (req, res) => {
 			key.push(popular);
 		}
 
-		courses = await redis.get(`courses.${key.join(".")}`);
-		if (courses) {
-			let parsedCourses = JSON.parse(courses);
-			return res.status(OK).send({
-				courses: parsedCourses,
-				courseCount: parsedCourses.length,
-				redis: true,
-			});
-		}
+		// courses = await redis.get(`courses.${key.join(".")}`);
+		// if (courses) {
+		// 	let parsedCourses = JSON.parse(courses);
+		// 	return res.status(OK).send({
+		// 		courses: parsedCourses,
+		// 		courseCount: parsedCourses.length,
+		// 		redis: true,
+		// 	});
+		// }
 
 		courses = await Course.find(queryObject).populate("author");
 		if (courses.length !== 0)
-			await redis.set(`courses.${key.join(".")}`, JSON.stringify(courses));
+			// await redis.set(`courses.${key.join(".")}`, JSON.stringify(courses));
 
-		return res
-			.status(OK)
-			.send({ courses, courseCount: courses.length, redis: false });
+			return res
+				.status(OK)
+				.send({ courses, courseCount: courses.length, redis: false });
 	} catch (err) {
 		console.log("Error", err);
 		return res.status(INTERNAL_SERVER_ERROR).send({ err: err.message });
@@ -127,6 +135,50 @@ const createCourses = async (req, res) => {
 	} catch (err) {
 		console.log("Error", err);
 		return res.status(INTERNAL_SERVER_ERROR).send({ err: err.message });
+	}
+};
+
+const updateCourse = async (req, res) => {
+	try {
+		let course = req.body;
+		let webpPath = req.files.webpImg[0].filename;
+		let previewPath = req.files.previewImage[0].filename;
+		course.webpImg = webpPath;
+		course.previewImage = previewPath;
+		course.popular = req.body.popular == "true" ? true : false;
+
+		course = await Course.findByIdAndUpdate(req.params.id, course)
+			.lean()
+			.exec();
+
+		// Removing Old Files
+		previewPath = path.join(
+			__dirname,
+			`../uploads/coursesImages/${course.previewImage}`
+		);
+		webpImage = path.join(
+			__dirname,
+			`../uploads/coursesImages/${course.webpImg}`
+		);
+
+		let testPath = course.webpImage;
+
+		// Checking if file path is not a url
+		if (testPath && !testPath.startsWith("https")) {
+			const allFiles = [previewPath, webpImage];
+
+			for (let oneFile of allFiles) {
+				fs.unlink(oneFile, function (err) {
+					if (err) console.log(err);
+					console.log(`File delete: ${oneFile}`);
+				});
+			}
+		}
+
+		return res.status(OK).send(course);
+	} catch (err) {
+		console.log("Error", err);
+		return res.status(INTERNAL_SERVER_ERROR).send({ error: err.message });
 	}
 };
 
@@ -170,4 +222,10 @@ const deleteCourse = async (req, res) => {
 		return res.status(INTERNAL_SERVER_ERROR).send({ error: err.message });
 	}
 };
-module.exports = { getCoursesStatic, createCourses, getCourses, deleteCourse };
+module.exports = {
+	getCoursesStatic,
+	createCourses,
+	getCourses,
+	deleteCourse,
+	updateCourse,
+};

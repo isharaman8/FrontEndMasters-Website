@@ -31,8 +31,12 @@ app.use("/api/v1/users", userRouter);
 
 // Image Router
 app.use("/static/images/", imageRouter);
+
 // Teacher Router
 app.use("/api/v1/teacher", teacherRouter);
+
+// Author Router
+app.use("/api/v1/author", authorRouter);
 
 // Guide Router
 app.use("/api/v1/guide", guideRouter);

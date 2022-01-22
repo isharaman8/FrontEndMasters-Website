@@ -10,9 +10,17 @@ const {
 	createCourses,
 	getCourses,
 	deleteCourse,
+	updateCourse,
 } = require("../controllers/courses.controller");
 
 router.delete("/:id", authenticate, authorize(["admin"]), deleteCourse);
+router.patch(
+	"/:id",
+	authenticate,
+	authorize(["admin"]),
+	upload.fields([{ name: "webpImg" }, { name: "previewImage" }]),
+	updateCourse
+);
 router.route("/test").get(authenticate, authorize(["admin"]), getCoursesStatic);
 router
 	.route("/")

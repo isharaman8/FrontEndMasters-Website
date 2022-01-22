@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/updateCourse.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form id="updateForm" enctype="multipart/form-data">
+			<label for="courseName">
+				Course Name
+				<input type="text" id="courseName" />
+			</label>
+
+			<label for="description">
+				Description
+				<textarea id="description" cols="30" rows="5"></textarea>
+			</label>
+
+			<label for="authorId">
+				Author Id
+				<input type=text id="authorId"></input>
+			</label>
+
+			<label for="previewImage">
+				Preview Image Link
+				<input type="file" name="previewImage" id="previewImage" />
+			</label>
+
+			<label for="publishedAt">
+				Published At
+				<input type="text" id="publishedAt" />
+			</label>
+
+			<label for="duration">
+				Course Duration
+				<input type="text" id="duration" />
+			</label>
+
+			<label for="webpImg">
+				Background Image
+				<input type="file" name="webpImg" , id="webpImg" />
+			</label>
+
+			<label for="popular">
+				Popular
+				<select id="popular">
+					<option value="true">True</option>
+					<option value="false">False</option>
+				</select>
+			</label>
+
+			<input type="submit" value="Update" />
+		</form>
+	</body>
+</html>
+<script src="js/addCourse.js"></script>

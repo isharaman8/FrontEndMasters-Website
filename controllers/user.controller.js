@@ -1,6 +1,5 @@
 const User = require("../models/user.test.model");
 const jwt = require("jsonwebtoken");
-const redis = require("../config/redis");
 require("dotenv").config();
 
 const {
@@ -15,9 +14,10 @@ const generateToken = (user) => {
 			first_name: user.first_name,
 			last_name: user.last_name,
 			username: user.username,
-			roles: user.roles || "user",
+			role: user.role || "user",
 		},
-		process.env.SECRET_HASH
+		process.env.SECRET_HASH,
+		{ expiresIn: "1h" }
 	);
 };
 
@@ -42,7 +42,6 @@ const registerUser = async (req, res) => {
 		}
 
 		user = await User.create(req.body);
-		delete user.roles;
 		let token = generateToken(user);
 		return res.status(OK).send({ user, token });
 	} catch (err) {
@@ -69,7 +68,6 @@ const loginUser = async (req, res) => {
 				.send({ message: `Email id or password incorrect` });
 		}
 
-		delete user.roles;
 		const token = generateToken(user);
 		return res.status(OK).send({ user, token });
 	} catch (err) {
@@ -84,8 +82,6 @@ const deleteUser = async (req, res) => {
 		if (!user) {
 			return res.status(BAD_REQUEST).send({ message: `No user found` });
 		}
-
-		delete user.roles;
 		return res.status(OK).send(user);
 	} catch (err) {
 		console.log("Error", err);
