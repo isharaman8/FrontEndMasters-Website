@@ -1,5 +1,5 @@
 const Course = require("../models/courses.model");
-const redis = require("../config/redis");
+
 const fs = require("fs");
 const path = require("path");
 
@@ -15,9 +15,7 @@ const getCoursesStatic = async (req, res) => {
 		const size = req.query.size || 10;
 
 		const offset = (page - 1) * size;
-		// let courses = await redis.get("courses");
-		// if (courses) return res.status(OK).send(JSON.parse(courses));
-		// else {
+
 		let courses = await Course.find()
 			.skip(offset)
 			.limit(size)
@@ -48,16 +46,6 @@ const getCourses = async (req, res) => {
 		let courses;
 		// Author Query
 		if (author) {
-			// courses = await redis.get(`courses.authors.${author}`);
-			// if (courses) {
-			// 	let parsedCourses = JSON.parse(courses);
-			// 	return res.status(OK).send({
-			// 		courses: parsedCourses,
-			// 		nbHits: parsedCourses.length,
-			// 		redis: true,
-			// 	});
-			// }
-
 			courses = await Course.aggregate([
 				{
 					$lookup: {
@@ -73,11 +61,10 @@ const getCourses = async (req, res) => {
 					},
 				},
 			]).exec();
-			// await redis.set(`courses.authors.${author}`, JSON.stringify(courses));
+
 			return res.status(OK).send({
 				courses,
 				nbHits: courses.length,
-				redis: false,
 			});
 		}
 		if (popular) {
@@ -85,20 +72,8 @@ const getCourses = async (req, res) => {
 			key.push(popular);
 		}
 
-		// courses = await redis.get(`courses.${key.join(".")}`);
-		// if (courses) {
-		// 	let parsedCourses = JSON.parse(courses);
-		// 	return res.status(OK).send({
-		// 		courses: parsedCourses,
-		// 		courseCount: parsedCourses.length,
-		// 		redis: true,
-		// 	});
-		// }
-
 		courses = await Course.find(queryObject).populate("author");
 		if (courses.length !== 0)
-			// await redis.set(`courses.${key.join(".")}`, JSON.stringify(courses));
-
 			return res
 				.status(OK)
 				.send({ courses, courseCount: courses.length, redis: false });
@@ -188,10 +163,8 @@ const deleteCourse = async (req, res) => {
 		if (!course) {
 			return res.status(BAD_REQUEST).send({ message: `Course not found` });
 		}
-		await redis.del(`courses.${course._id}`);
 
 		let courses = await Course.find().lean().exec();
-		await redis.set("courses", JSON.stringify(courses));
 
 		const previewPath = path.join(
 			__dirname,
