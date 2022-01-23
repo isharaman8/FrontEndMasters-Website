@@ -1,5 +1,4 @@
 const Author = require("../models/authors.test.model");
-const redis = require("../config/redis");
 const fs = require("fs");
 const path = require("path");
 

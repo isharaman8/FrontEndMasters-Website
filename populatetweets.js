@@ -16,7 +16,7 @@ for (let tweet of tweets) {
 }
 const populate = async (tweets) => {
 	try {
-		await connectDB(process.env.MONGO_URI_TEST);
+		await connectDB(process.env.MONGO_URI);
 		await Tweet.deleteMany();
 		await Tweet.create(tweets);
 		console.log(`Done`);

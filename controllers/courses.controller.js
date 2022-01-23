@@ -74,9 +74,7 @@ const getCourses = async (req, res) => {
 
 		courses = await Course.find(queryObject).populate("author");
 		if (courses.length !== 0)
-			return res
-				.status(OK)
-				.send({ courses, courseCount: courses.length, redis: false });
+			return res.status(OK).send({ courses, courseCount: courses.length });
 	} catch (err) {
 		console.log("Error", err);
 		return res.status(INTERNAL_SERVER_ERROR).send({ err: err.message });
@@ -93,18 +91,6 @@ const createCourses = async (req, res) => {
 		course.webpImg = webpPath;
 		course.previewImage = previewPath;
 		course = await Course.create(course);
-
-		await redis.set(`courses.${course._id}`, JSON.stringify(course));
-
-		let allCourses = await redis.get("courses");
-		if (allCourses) {
-			let parsedCourses = JSON.parse(allCourses);
-			allCourses = [...parsedCourses, course];
-			await redis.set(`courses`, JSON.stringify(allCourses));
-		} else {
-			allCourses = await Course.find().lean().exec();
-			await redis.set(`courses`, JSON.stringify(allCourses));
-		}
 
 		return res.status(OK).send(course);
 	} catch (err) {

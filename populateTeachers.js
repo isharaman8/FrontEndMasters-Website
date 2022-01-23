@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const populate = async (authors) => {
 	try {
-		await connectDB(process.env.MONGO_URI_TEST);
+		await connectDB(process.env.MONGO_URI);
 		await Author.deleteMany();
 		await Author.create(authors);
 		console.log(`Done`);

@@ -22,8 +22,7 @@
     "mongoose": "^6.1.7",
     "multer": "^1.4.4",
     "passport": "^0.5.2",
-    "passport-google-oauth2": "^0.2.0",
-    "redis": "^4.0.2"
+    "passport-google-oauth2": "^0.2.0"
   },
   "description": "<h1>Front End Masters Clone</h1>",
   "bugs": {

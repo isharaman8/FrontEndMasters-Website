@@ -1,7 +1,6 @@
 const courses = require("./public/JSON/courses");
 const connectDB = require("./config/connect");
 const Course = require("./models/courses.model");
-const redis = require("./config/redis");
 const Author = require("./models/authors.test.model");
 require("dotenv").config();
 
@@ -43,7 +42,7 @@ for (let elem of courses) {
 }
 
 const populate = async (courses) => {
-	await connectDB(process.env.MONGO_URI_TEST);
+	await connectDB(process.env.MONGO_URI);
 	const authors = await Author.find().lean().exec();
 
 	for (let i = 0; i < courses.length; i++) {
@@ -51,11 +50,7 @@ const populate = async (courses) => {
 	}
 
 	await Course.deleteMany();
-	let fetchCourses = await Course.create(courses);
-	fetchCourses.forEach(async (course) => {
-		await redis.set(`courses.${course._id}`, JSON.stringify(course));
-	});
-	await redis.set(`course`, JSON.stringify(fetchCourses));
+	await Course.create(courses);
 	process.exit(0);
 };
 
