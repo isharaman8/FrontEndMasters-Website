@@ -1,8 +1,7 @@
 // local Storages
 const endUser = JSON.parse(localStorage.getItem("frontEndUser")) || {};
 const userPlan = JSON.parse(localStorage.getItem("frontEndUserPlan")) || [];
-console.log(endUser);
-console.log(userPlan);
+
 document.getElementById("cdForm").addEventListener("submit", (event) => {
 	checkout(event, endUser, userPlan[1]);
 });

@@ -69,7 +69,6 @@ async function getTweets(queries = "") {
 	if (queries) {
 		url = `${url}?${queries}`;
 	}
-	console.log(url);
 	let api = await fetch(url);
 	let tweeets = await api.json();
 	return tweeets;
@@ -79,9 +78,6 @@ async function getTweets(queries = "") {
 	const tweetsOne = await getTweets("page=1");
 	const tweetsTwo = await getTweets("page=2");
 	const tweetsThree = await getTweets("page=1");
-	console.log(tweetsOne);
-
-	console.log(tweets);
 
 	// DEFINING APPENDING DIVS
 	let tweetDiv1 = document.getElementById("cell1");
@@ -98,8 +94,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	let pageOneTweets = document.querySelectorAll("#cell1 >.tweetMainDiv");
 	let pageTwoTweets = document.querySelectorAll("#cell2 >.tweetMainDiv");
 	let pageThreeTweets = document.querySelectorAll("#cell3 >.tweetMainDiv");
-
-	console.log("pageOneTweets", pageOneTweets);
 
 	for (let i = 0; i < 4; i++) {
 		pageOneTweets[i].classList.add("hiddenClass");

@@ -6,7 +6,6 @@ function logOut(event) {
 window.addEventListener("load", () => {
 	let loginData = JSON.parse(localStorage.getItem("loginFrontEndData")) || {};
 
-	console.log(loginData);
 	if (Object.entries(loginData).length > 0) {
 		document.querySelector("#loginLI").textContent = loginData.username;
 		document.querySelector("#loginLI").setAttribute("href", "#");

@@ -10,7 +10,6 @@ async function getCourses(queries = "") {
 	if (queries) {
 		url = `${url}?${queries}`;
 	}
-	console.log(url);
 	let api = await fetch(url);
 	let courses = await api.json();
 	return courses;

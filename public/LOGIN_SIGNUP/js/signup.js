@@ -114,7 +114,7 @@ function checkValidUser(data, paymentMode, userObj, checkedPlan) {
 		monthly_team: "195",
 		yearly_team: "1950",
 	};
-	console.log(data);
+
 	if (data?.token !== undefined) {
 		alert("Registration Successful");
 		localStorage.setItem("userToken", data.token);

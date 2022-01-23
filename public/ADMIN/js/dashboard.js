@@ -3,7 +3,6 @@ const fetchCourses = async (params) => {
 	let url = `https://safe-woodland-02335.herokuapp.com/api/v1/courses/test`;
 	if (params) {
 		url = `${url}?${params}`;
-		console.log(url);
 	}
 	let authToken = localStorage.getItem("adminToken");
 	let api = await fetch(url, {
@@ -34,7 +33,6 @@ const deleteCourse = async (id) => {
 };
 
 const mapCourses = (courses) => {
-	console.log(courses);
 	document.querySelector("#courseTable > tbody").innerHTML = "";
 	courses.map((course) => {
 		// Creating Elements
@@ -78,7 +76,7 @@ const mapCourses = (courses) => {
 
 (async () => {
 	let courses = await fetchCourses();
-	console.log(courses);
+
 	mapCourses(courses);
 })();
 
@@ -94,7 +92,6 @@ document.querySelector("#next").addEventListener("click", async () => {
 		document.querySelector("#next").disabled = true;
 		return;
 	}
-	console.log(courses);
 	mapCourses(courses);
 });
 document.querySelector("#prev").addEventListener("click", async () => {

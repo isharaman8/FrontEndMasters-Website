@@ -22,7 +22,6 @@ const updateCourse = async (e, course) => {
 	fd.append("description", document.querySelector("#description").value);
 	fd.append("publishedAt", document.querySelector("#publishedAt").value);
 	fd.append("popular", document.querySelector("#popular").value);
-	console.log(document.querySelector("#popular").value);
 	fd.append("duration", updatingCourse.duration);
 
 	let url = `https://safe-woodland-02335.herokuapp.com/api/v1/courses/${course._id}`;

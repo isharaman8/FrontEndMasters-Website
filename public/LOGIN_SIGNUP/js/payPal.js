@@ -1,6 +1,5 @@
 // Local Storages
 const userPlan = JSON.parse(localStorage.getItem("frontEndUserPlan")) || [];
-console.log(userPlan);
 
 function placeValues(userPlan) {
 	let planName;

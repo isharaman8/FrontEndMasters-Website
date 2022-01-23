@@ -2,7 +2,6 @@ const singleCourse = JSON.parse(localStorage.getItem("previewCourse")) || {};
 const loggedInData =
 	JSON.parse(localStorage.getItem("loginFrontEndData")) || {};
 
-console.log(singleCourse);
 const upperSection = (singleCourse) => {
 	document.querySelector("#imageAndAuthor").innerHTML = "";
 
@@ -32,7 +31,7 @@ const upperSection = (singleCourse) => {
 	if (!webImage.startsWith("https")) {
 		webImage = `https://safe-woodland-02335.herokuapp.com/static/images/courses/${webImage}`;
 	}
-	console.log(webImage);
+
 	bgImage.src = webImage;
 
 	authorImg.src = singleCourse.author.authorImg;
@@ -87,7 +86,6 @@ const bottomSection = (singleCourse) => {
 	if (!previewImage.startsWith("https")) {
 		previewImage = `https://safe-woodland-02335.herokuapp.com/static/images/courses/${previewImage}`;
 	}
-	console.log(previewImage);
 	previewImg.src = previewImage;
 	description.textContent = singleCourse.description;
 
