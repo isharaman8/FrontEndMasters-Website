@@ -64,7 +64,7 @@ const setHiddenClass = (arr) => {
 };
 
 async function getTweets(queries = "") {
-	let url = `https://safe-woodland-02335.herokuapp.com/api/v1/tweets/test`;
+	let url = `http://localhost:5000/api/v1/tweets/test`;
 
 	if (queries) {
 		url = `${url}?${queries}`;

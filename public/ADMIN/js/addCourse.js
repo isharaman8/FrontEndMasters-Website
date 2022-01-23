@@ -24,7 +24,7 @@ const addCourse = async (e) => {
 	fd.append("duration", document.querySelector("#duration").value);
 	fd.append("author", document.querySelector("#authorId").value);
 
-	let url = `https://safe-woodland-02335.herokuapp.com/api/v1/courses/`;
+	let url = `http://localhost:5000/api/v1/courses/`;
 
 	let api = await fetch(url, {
 		method: "POST",

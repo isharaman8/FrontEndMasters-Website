@@ -108,6 +108,7 @@ const updateCourse = async (req, res) => {
 		course.previewImage = previewPath;
 		course.popular = req.body.popular == "true" ? true : false;
 
+		console.log(course);
 		course = await Course.findByIdAndUpdate(req.params.id, course)
 			.lean()
 			.exec();
@@ -149,8 +150,6 @@ const deleteCourse = async (req, res) => {
 		if (!course) {
 			return res.status(BAD_REQUEST).send({ message: `Course not found` });
 		}
-
-		let courses = await Course.find().lean().exec();
 
 		const previewPath = path.join(
 			__dirname,

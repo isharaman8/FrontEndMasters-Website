@@ -24,7 +24,7 @@ const updateCourse = async (e, course) => {
 	fd.append("popular", document.querySelector("#popular").value);
 	fd.append("duration", updatingCourse.duration);
 
-	let url = `https://safe-woodland-02335.herokuapp.com/api/v1/courses/${course._id}`;
+	let url = `http://localhost:5000/api/v1/courses/${course._id}`;
 
 	let api = await fetch(url, {
 		method: "PATCH",
@@ -34,6 +34,7 @@ const updateCourse = async (e, course) => {
 		},
 	});
 	let data = await api.json();
+	console.log(data);
 	if (data.author !== undefined) {
 		alert(`Update Successful`);
 		window.location.href = "/ADMIN/dashboard.html";
