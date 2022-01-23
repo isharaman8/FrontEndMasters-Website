@@ -34,7 +34,9 @@ const getUsers = async (req, res) => {
 
 const registerUser = async (req, res) => {
 	try {
-		let user = await User.findOne({ email: req.body.email }).exec();
+		let user = await await User.findOne({
+			$or: [{ email: req.body.email }, { username: req.body.username }],
+		}).exec();
 		if (user) {
 			return res
 				.status(BAD_REQUEST)
