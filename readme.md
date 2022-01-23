@@ -13,7 +13,7 @@
   <li>Css</li>
   <li>jQuery (Carousel)</li>
   <li>Flickity (Carousel)</li>
-  <li>Nodejs, expressjs (backend)</li>
+  <li>Nodejs, expressjs, mongodb (backend)</li>
 </ul>
 
 <br><br>
