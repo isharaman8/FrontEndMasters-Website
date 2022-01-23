@@ -2,7 +2,7 @@
   "name": "frontendmasters-website-clone",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "main": "index.js",
   "repository": {
