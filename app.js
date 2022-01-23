@@ -41,7 +41,9 @@ app.use("/api/v1/author", authorRouter);
 // Guide Router
 app.use("/api/v1/guide", guideRouter);
 
-app.listen(3000, async () => {
+const port = process.env.PORT || 5000;
+
+app.listen(port, async () => {
 	await connectDB(process.env.MONGO_URI);
-	console.log(`app is listening on port 3000...`);
+	console.log(`app is listening on port ${port}...`);
 });
