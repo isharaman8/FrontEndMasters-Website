@@ -6,7 +6,7 @@ document.querySelector("#footer").innerHTML = footer();
 
 const loginUser = async (event) => {
 	event.preventDefault();
-	const url = `http://localhost:3000/api/v1/users/login`;
+	const url = `https://safe-woodland-02335.herokuapp.com/api/v1/users/login`;
 
 	let loginObj = {
 		password: document.querySelector("#password").value,

@@ -93,7 +93,7 @@ async function registerUser(event) {
 		return;
 	}
 
-	const url = `http://localhost:3000/api/v1/users/register`;
+	const url = `https://safe-woodland-02335.herokuapp.com/api/v1/users/register`;
 
 	const api = await fetch(url, {
 		method: "POST",
