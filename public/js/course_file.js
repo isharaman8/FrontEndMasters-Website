@@ -6,7 +6,7 @@ import footer from "../components/footer.js";
 // import { get } from "express/lib/response";
 
 async function getCourses(queries = "") {
-	let url = `http://127.0.0.1:3000/api/v1/courses`;
+	let url = `https://safe-woodland-02335.herokuapp.com/api/v1/courses`;
 	if (queries) {
 		url = `${url}?${queries}`;
 	}
@@ -86,7 +86,7 @@ async function appendCourses(courses, appendingDiv) {
 
 		let webImage = course.webpImg;
 		if (!webImage.startsWith("https")) {
-			webImage = `http://127.0.0.1:3000/static/images/courses/${webImage}`;
+			webImage = `https://safe-woodland-02335.herokuapp.com/static/images/courses/${webImage}`;
 		}
 		backgroundImg.src = webImage;
 

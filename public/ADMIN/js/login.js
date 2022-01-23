@@ -14,7 +14,7 @@ const loginAdmin = async (e) => {
 	const credObj = { username: username, password: password };
 
 	console.log(credObj);
-	const url = `http://localhost:3000/api/v1/users/login`;
+	const url = `https://safe-woodland-02335.herokuapp.com/api/v1/users/login`;
 
 	const api = await fetch(url, {
 		method: "POST",

@@ -30,7 +30,7 @@ const upperSection = (singleCourse) => {
 	// SETTING ATTTRIBUTES AND TEXT CONTENTS
 	let webImage = singleCourse.webpImg;
 	if (!webImage.startsWith("https")) {
-		webImage = `http://127.0.0.1:3000/static/images/courses/${webImage}`;
+		webImage = `https://safe-woodland-02335.herokuapp.com/static/images/courses/${webImage}`;
 	}
 	console.log(webImage);
 	bgImage.src = webImage;
@@ -85,7 +85,7 @@ const bottomSection = (singleCourse) => {
 	let previewImage = singleCourse.previewImage;
 
 	if (!previewImage.startsWith("https")) {
-		previewImage = `http://127.0.0.1:3000/static/images/courses/${previewImage}`;
+		previewImage = `https://safe-woodland-02335.herokuapp.com/static/images/courses/${previewImage}`;
 	}
 	console.log(previewImage);
 	previewImg.src = previewImage;
