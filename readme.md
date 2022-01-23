@@ -13,6 +13,7 @@
   <li>Css</li>
   <li>jQuery (Carousel)</li>
   <li>Flickity (Carousel)</li>
+  <li>Nodejs, expressjs, mongodb (backend)</li>
 </ul>
 
 <br><br>
@@ -20,19 +21,19 @@
 <h2>Sneak Peeks</h2>
 
 <p>Landing Page</p>
-<img src="Images/website_peeks/homepage.jpg" alt="landing page">
+<img src="public/Images/website_peeks/homepage.jpg" alt="landing page">
 
 <hr>
 <p>Courses Page</p>
-<img src="Images/website_peeks/courses.jpg" alt="courses page">
+<img src="public/Images/website_peeks/courses.jpg" alt="courses page">
 
 <hr>
 <p>Prices/Signup Page</p>
-<img src="Images/website_peeks/prices.jpg" alt="signup page">
+<img src="public/Images/website_peeks/prices.jpg" alt="signup page">
 
 <hr>
 <p>Teachers Page</p>
-<img src="Images/website_peeks/teachers.jpg" alt="teachers page">
+<img src="public/Images/website_peeks/teachers.jpg" alt="teachers page">
 
 
 <hr>
@@ -61,7 +62,7 @@
 
 <h3>Aakash Upadhyay</h3>
 <ul>
-  <li>Github: Rohanverma4</li>
+  <li>Github:</li>
   <li>Email: </li>
   <li>LinkedIn: <a href="https://www.linkedin.com/in/aakash-upadhyay-316215210/"> https://www.linkedin.com/in/aakash-upadhyay-316215210/</a></li>
 </ul>
