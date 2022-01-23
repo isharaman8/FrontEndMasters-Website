@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/connect");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv").config();
 
 // Routes Imports
@@ -16,6 +17,7 @@ const guideRouter = require("./routes/guides.routes");
 app.use(express.static("./public"));
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cors());
 
 // Courses.route;
 app.use("/api/v1/courses", coursesRouter);
