@@ -64,7 +64,7 @@ const setHiddenClass = (arr) => {
 };
 
 async function getTweets(queries = "") {
-	let url = `http://localhost:5000/api/v1/tweets/test`;
+	let url = `/api/v1/tweets/test`;
 
 	if (queries) {
 		url = `${url}?${queries}`;

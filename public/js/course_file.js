@@ -6,7 +6,7 @@ import footer from "../components/footer.js";
 // import { get } from "express/lib/response";
 
 async function getCourses(queries = "") {
-	let url = `http://localhost:5000/api/v1/courses`;
+	let url = `/api/v1/courses`;
 	if (queries) {
 		url = `${url}?${queries}`;
 	}

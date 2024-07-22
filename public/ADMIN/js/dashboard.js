@@ -1,6 +1,6 @@
 // Get All Courses
 const fetchCourses = async (params) => {
-	let url = `http://localhost:5000/api/v1/courses/test`;
+	let url = `/api/v1/courses/test`;
 	if (params) {
 		url = `${url}?${params}`;
 	}
@@ -17,7 +17,7 @@ const fetchCourses = async (params) => {
 
 // Delete Course Function
 const deleteCourse = async (id) => {
-	let url = `http://localhost:5000/api/v1/courses/${id}`;
+	let url = `/api/v1/courses/${id}`;
 	let authToken = localStorage.getItem("adminToken");
 	let api = await fetch(url, {
 		method: "DELETE",

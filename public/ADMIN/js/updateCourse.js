@@ -24,7 +24,7 @@ const updateCourse = async (e, course) => {
 	fd.append("popular", document.querySelector("#popular").value);
 	fd.append("duration", updatingCourse.duration);
 
-	let url = `http://localhost:5000/api/v1/courses/${course._id}`;
+	let url = `/api/v1/courses/${course._id}`;
 
 	let api = await fetch(url, {
 		method: "PATCH",
